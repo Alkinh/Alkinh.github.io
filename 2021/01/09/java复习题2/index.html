@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="-JAVA," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="《Java高级程序设计》编程复习题二1.1、    Java编写程序创建一HashSet集合，并在HashSet集合中添加3个Person对象（属性有id和name），把姓名相同的人当做同一个人，禁止重复添加。然后用数据[01 Tom；xx 张三；02 Tom]测试程序。（提示：要重写hashCode() 和equals() 方法。） 1234567891011121314151617181920">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java复习题2">
+<meta property="og:url" content="https://alkinh.github.io.git/2021/01/09/java%E5%A4%8D%E4%B9%A0%E9%A2%982/index.html">
+<meta property="og:site_name" content="存笔记的博客">
+<meta property="og:description" content="《Java高级程序设计》编程复习题二1.1、    Java编写程序创建一HashSet集合，并在HashSet集合中添加3个Person对象（属性有id和name），把姓名相同的人当做同一个人，禁止重复添加。然后用数据[01 Tom；xx 张三；02 Tom]测试程序。（提示：要重写hashCode() 和equals() 方法。） 1234567891011121314151617181920">
+<meta property="article:published_time" content="2021-01-09T11:46:03.000Z">
+<meta property="article:modified_time" content="2021-01-09T12:11:57.026Z">
+<meta property="article:author" content="Alkinh">
+<meta property="article:tag" content="-JAVA">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"custom_file_path":null},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://Alkinh.github.io.git/2021/01/09/java复习题2/"/>
+
+
+
+
+
+  <title>java复习题2 | 存笔记的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">存笔记的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/09/java%E5%A4%8D%E4%B9%A0%E9%A2%982/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java复习题2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-09T19:46:03+08:00">
+                2021-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="《Java高级程序设计》编程复习题二"><a href="#《Java高级程序设计》编程复习题二" class="headerlink" title="《Java高级程序设计》编程复习题二"></a>《Java高级程序设计》编程复习题二</h1><p>1.1、    Java编写程序创建一HashSet集合，并在HashSet集合中添加3个Person对象（属性有id和name），把姓名相同的人当做同一个人，禁止重复添加。然后用数据[01 Tom；xx 张三；02 Tom]测试程序。<br>（提示：要重写hashCode() 和equals() 方法。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import java.util.HashSet;</span><br><span class="line"></span><br><span class="line">public class Person &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  private int age;</span><br><span class="line"></span><br><span class="line">  public Person(String name, int age) &#123;</span><br><span class="line">  super();</span><br><span class="line">  this.name &#x3D; name;</span><br><span class="line">  this.age &#x3D; age;       &#x2F;&#x2F;定义name和age属性</span><br><span class="line"> &#125;&#x2F;&#x2F;K.kuimeng</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public String toString() &#123;</span><br><span class="line">  return &quot;姓名：&quot; + name + &quot;      年龄：&quot; + age ;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public int hashCode() &#123;</span><br><span class="line">  &#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">  return name.hashCode();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public boolean equals(Object o) &#123;</span><br><span class="line">  &#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">  Person c&#x3D;(Person)o;&#x2F;&#x2F;K.kuimeng</span><br><span class="line">  return c.name.equals(this.name);   &#x2F;&#x2F;根据姓名判断是否相等</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  HashSet&lt;Person&gt; hashSet&#x3D;new HashSet&lt;Person&gt;() ;</span><br><span class="line">  Person person1&#x3D;new Person(&quot;王猛&quot;,17);</span><br><span class="line">  Person person2&#x3D;new Person(&quot;张立&quot;,20);</span><br><span class="line">  Person person3&#x3D;new Person(&quot;王猛&quot;,22);   &#x2F;&#x2F;创建三个对象</span><br><span class="line">  hashSet.add(person1);</span><br><span class="line">  hashSet.add(person2);</span><br><span class="line">  hashSet.add(person3);</span><br><span class="line"></span><br><span class="line">  for (Person persons:hashSet) &#123;</span><br><span class="line">    System.out.println(persons);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>  2.编写一程序，考生利用I/O流（字节流和字符流）或者NIO技术，拷贝项目目录下的一个文件src.txt到dest.txt；再利用字符流技术把dest.txt文件读出来显示在控制台上。（提示：在Java项目的目录下创建源文件src.txt，并输入信息后保存，然后把它拷贝到目标文件和读出。）<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  package day_8;</span><br><span class="line"> import java.io.*;</span><br><span class="line">public class readTest &#123;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) throws Exception&#123;</span><br><span class="line">  &#x2F;&#x2F;创建文件输入流对象读取指定目录下的文件</span><br><span class="line">  FileInputStream in&#x3D;new FileInputStream(&quot;src.txt&quot;);</span><br><span class="line">  &#x2F;&#x2F;创建文件输出流对象将读取到的文件内容写到指定目录的文件中</span><br><span class="line">  FileOutputStream out&#x3D;new FileOutputStream(&quot;dest.txt&quot;);</span><br><span class="line">  &#x2F;&#x2F;定义一个int类型的变量len</span><br><span class="line">  int len1&#x3D;0;</span><br><span class="line">  long beginTime&#x3D;System.currentTimeMillis();&#x2F;&#x2F;获取拷贝文件前的系统时间</span><br><span class="line">  &#x2F;&#x2F;通过循环将读取到的文件字节信息写到新文件,条件为读取src文件中字节不为-1,-1代表结束</span><br><span class="line">  while((len1&#x3D;in.read())!&#x3D;-1) &#123;</span><br><span class="line">   out.write(len1);&#x2F;&#x2F;将len写入out中</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F;获取拷贝文件后的系统时间</span><br><span class="line">  long endTime&#x3D;System.currentTimeMillis();</span><br><span class="line">  System.out.println(&quot;花费时间为：&quot;+(endTime-beginTime+&quot;毫秒&quot;));</span><br><span class="line">  in.close();</span><br><span class="line">  out.close();</span><br><span class="line">  &#x2F;&#x2F;创建FileReader对象，并指定需要读取的文件</span><br><span class="line">  FileReader fr&#x3D;new FileReader(&quot;dest.txt&quot;);</span><br><span class="line">  int len2&#x3D;0;</span><br><span class="line">  while((len2&#x3D;fr.read())!&#x3D;-1) &#123;&#x2F;&#x2F;读到-1代表到了末尾</span><br><span class="line">   System.out.print((char)len2);&#x2F;&#x2F;将输出的int类型强制转换为char类型</span><br><span class="line">  &#125;</span><br><span class="line">  fr.close();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>3.编写一个JFrame窗口，在窗口最上方放置一个Jlabel标签，标签中默认文本是“此处显示鼠标右键单击坐标”；为Jframe窗口添加一个鼠标事件，当鼠标右键单击窗口时，鼠标的坐标会在Jlabel中显示出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.*;</span><br><span class="line"> </span><br><span class="line">import javax.swing.*;</span><br><span class="line"> </span><br><span class="line">public class MyMouseHandler extends JFrame &#123;</span><br><span class="line">    public MyMouseHandler() &#123;</span><br><span class="line">        final JLabel label &#x3D; new JLabel(&quot;此处显示鼠标右键点击的坐标&quot;);</span><br><span class="line">        label.setOpaque(true);</span><br><span class="line">        label.setBackground(Color.PINK);</span><br><span class="line">        this.add(label, BorderLayout.NORTH);</span><br><span class="line">        this.setSize(300, 200);</span><br><span class="line">        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        this.addMouseListener(new MouseAdapter() &#123;</span><br><span class="line">                public void mouseClicked(MouseEvent e) &#123;</span><br><span class="line">                    if (e.getButton() &#x3D;&#x3D; e.BUTTON1) &#123;</span><br><span class="line">                        int x &#x3D; e.getX();</span><br><span class="line">                        int y &#x3D; e.getY();</span><br><span class="line">                        String banner &#x3D; &quot;鼠标当前点击位置的坐标是&quot; + x + &quot;,&quot; + y;</span><br><span class="line">                        label.setText(banner);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        this.setVisible(true);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new MyMouseHandler();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>4.利用Random类或者Math.random()方法来产生5个30<del>80之间的随机整数。（Tips: n</del>m（n&lt;m）之间的随机数公式: n+(new Random()).nextInt(m-n+1)）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line">public class Test03 &#123;</span><br><span class="line">		public static void main(String[] args) &#123;</span><br><span class="line">			   Random rand &#x3D; new Random();</span><br><span class="line">		        int[] num &#x3D; new int[5];</span><br><span class="line">		        for (int i &#x3D; 0; i &lt; num.length; i++) &#123;</span><br><span class="line">		            num[i] &#x3D; 20 + rand.nextInt(31);</span><br><span class="line">		            System.out.println(num[i]);</span><br><span class="line">		        &#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.编写一Java程序，用中文方式显示当前时间；并输出今天是今年的第几天，星期几。（参考格式为：2020年09月25日：今天是2020年的第269天，星期五）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package day_8;</span><br><span class="line">import java.util.*;</span><br><span class="line">import java.text.*;</span><br><span class="line">public class DateTest &#123;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  SimpleDateFormat sdf&#x3D;new SimpleDateFormat(</span><br><span class="line">    &quot;yyyy年MM月dd日：今天是yyyy年的第D天，E&quot;);</span><br><span class="line">  &#x2F;&#x2F;按SimpleDateFormat对象的日期模板格式化date对象</span><br><span class="line">  System.out.println(sdf.format(new Date()));</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6.某人在玩游戏时输入密码xxxxxxx(123456)后成功进入游戏（输错5次则被强行退出），要求用程序实现密码验证的过程。（提示： 利用new BufferedReader(new InputStreamReader(System.in))建立由控制台到程序的字符流管道。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.io.*;</span><br><span class="line"> </span><br><span class="line">public class Game &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        BufferedReader br &#x3D; new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line">        String password &#x3D; &quot;&quot;;</span><br><span class="line">        boolean b &#x3D; false;</span><br><span class="line"> </span><br><span class="line">        for (int i&#x3D;0; i&lt;5; i++) &#123;</span><br><span class="line">            System.out.println(&quot;请输入密码:&quot;);</span><br><span class="line">            password &#x3D; br.readLine();</span><br><span class="line"> </span><br><span class="line">            if (password.equals(&quot;123456&quot;)) &#123;</span><br><span class="line">                System.out.println(&quot;恭喜你进入游戏&quot;);</span><br><span class="line">                b &#x3D; true;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (!b) &#123;</span><br><span class="line">            System.out.println(&quot;密码错误，游戏结束&quot;);</span><br><span class="line">            System.exit(0);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA/" rel="tag"># -JAVA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/04/%E5%89%8D%E7%AB%AF%E2%80%94%E6%A8%A1%E6%8B%9F%E4%B8%8B%E5%88%92%E7%BA%BF%E6%95%88%E6%9E%9C/" rel="next" title="前端—模拟下划线效果">
+                <i class="fa fa-chevron-left"></i> 前端—模拟下划线效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="prev" title="黑马html课程笔记">
+                黑马html课程笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.png"
+                alt="Alkinh" />
+            
+              <p class="site-author-name" itemprop="name">Alkinh</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Alkinh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          <!-- none-select-br -->
+
+<p></p>
+
+<!-- hitokoto -->
+
+<div class="hitokoto-title">
+	<i class="fa fa-paragraph"></i>
+	<b>一言</b>
+</div>
+
+<div id="hitokoto">:D 获取中...</div>
+<i id="hitofrom">:D 获取中...</i>
+
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
+      var hitofrom = document.getElementById('hitofrom');
+      hitofrom.innerText = "——" + data.from + '\xa0'; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《Java高级程序设计》编程复习题二"><span class="nav-number">1.</span> <span class="nav-text">《Java高级程序设计》编程复习题二</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alkinh</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
