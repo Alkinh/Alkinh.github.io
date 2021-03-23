@@ -341,16 +341,55 @@
 <ul>
 <li><p>会将string的html解析出来并且进行渲</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h2 v-html&#x3D;&quot;url&quot;&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">url:&#39;&lt;a href&#x3D;&quot;www.baidu.com&quot;&gt;百度一下&lt;&#x2F;a&gt;&#39;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">3. V-text指令</span><br><span class="line"></span><br><span class="line">   - v-text作用和 Mustache比较相似：都是用于将数据显示在界面中</span><br><span class="line"></span><br><span class="line">   - v-text通常情况下，接受一个 string类型</span><br><span class="line"></span><br><span class="line">   - 不灵活,一般不使用</span><br></pre></td></tr></table></figure>
-   <h2 v-text="message"></h2>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. V-pre指令</span><br><span class="line"></span><br><span class="line">   - 用于跳过这个元素和它子元素的编译过程，用于显示原本的 Mustache语法</span><br></pre></td></tr></table></figure>
-    <p v-pre></p>案例
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">5. V-cloak</span><br><span class="line"></span><br><span class="line">   - 在某些情况下，我们浏览器可能会直接显然出未编译的 Mustache标签,所以用V-cloak遮掩。</span><br><span class="line"></span><br><span class="line">   - V-cloak的特性，vue解析前，div中有一个属性v_cloak，解析后就没有这个属性了，可以用来延迟显示。</span><br></pre></td></tr></table></figure>
-   <h2 v-cloak></h2>案例
-   ```
+
 
 </li>
 </ul>
+<ol start="3">
+<li><p>V-text指令</p>
+<ul>
+<li><p>v-text作用和 Mustache比较相似：都是用于将数据显示在界面中</p>
+</li>
+<li><p>v-text通常情况下，接受一个 string类型</p>
+</li>
+<li><p>不灵活,一般不使用</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 v-text&#x3D;&quot;message&quot;&gt;&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>V-pre指令</p>
+<ul>
+<li><p>用于跳过这个元素和它子元素的编译过程，用于显示原本的 Mustache语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-pre&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;p&gt;案例</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li><p>V-cloak</p>
+<ul>
+<li><p>在某些情况下，我们浏览器可能会直接显然出未编译的 Mustache标签,所以用V-cloak遮掩。</p>
+</li>
+<li><p>V-cloak的特性，vue解析前，div中有一个属性v_cloak，解析后就没有这个属性了，可以用来延迟显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 v-cloak&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;h2&gt;案例</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
 
           
         
