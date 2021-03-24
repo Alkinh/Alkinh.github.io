@@ -248,6 +248,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9514/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9514/" itemprop="url">MySQL网课记录14</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T15:04:34+08:00">
+                2020-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
+                    <span itemprop="name">网课记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="3-6-7-限制查询"><a href="#3-6-7-限制查询" class="headerlink" title="3.6.7 限制查询"></a>3.6.7 限制查询</h1><p>1.限制查询<br>  LIMT子句，主要用于限制 SELECT语句返回的行数。<br>  语法格式：<br>  LIMIT{[offest,]row_count}<br>  说明：语法格式中的 offset和row_ count都必须是非负的整数， offset指定返回的第一行的偏移量， row_count是返回的行数。<br>  限制查询的功能：<br>  1.LIMIT限制返回的数量可以有效的减少服务器的压力和传输压力。<br>  2.利用LIMIT来实现分页功能</p>
+<p>2.示例<br>(1)查询出c001课程前三名的成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_mark</span><br><span class="line">where cno&#x3D;&quot;c001&quot;</span><br><span class="line">order by grade desc</span><br><span class="line">limit 3; &#x2F;&#x2F; limit子句放最后</span><br></pre></td></tr></table></figure>
+<p>(2)查询出c001课程第四名到第六名的成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_mark</span><br><span class="line">where cno&#x3D;&quot;c001&quot;</span><br><span class="line">order by grade desc</span><br><span class="line">limit 3,3; &#x2F;&#x2F; 偏移量指定返回的第一行的偏移量，就比如这里的第四、第六就分别是从一，四开始，所以这里是3，3.</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9513/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1633,159 +1778,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/04/07/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95%EF%BC%885%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/07/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95%EF%BC%885%EF%BC%89/" itemprop="url">MySQL网课记录（5）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-07T14:13:34+08:00">
-                2020-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="章节3-2"><a href="#章节3-2" class="headerlink" title="章节3.2"></a>章节3.2</h1><p>1.插入新记录<br>  向表中插入全新的记录用<strong>insert</strong>语句格式：<br>  use 数据库名;<br>  insert into 表名<br>  values（’需要添加的数据’);</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use stumarkdb; &#x2F;&#x2F; 首先进入数据库</span><br><span class="line">insert into tb_student  &#x2F;&#x2F;向tb_student表中插入数据</span><br><span class="line">  values(&#39;0081101&#39;,&#39;王林&#39;,&#39;女&#39;，21,&#39;18011112222&#39;,&#39;08网络1班&#39;,&#39;1994-2-10&#39;;&#x2F;&#x2F;如果有些的地方为空，则输入null</span><br></pre></td></tr></table></figure>
-
-<p> 如果默认值为女<br> 则可以这样输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use stumarkdb;</span><br><span class="line">insert into tb_student（sno，sname,sage,tel,classname,edate)</span><br><span class="line">values(&#39;0081101&#39;,&#39;王林&#39;,21,&#39;18011112222&#39;,&#39;08网络1班&#39;,&#39;1994-2-10&#39;;&#x2F;&#x2F;不用输入女，或者用default(不用引号）代替</span><br></pre></td></tr></table></figure>
-<p>插入多条记录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into tb_mark(sno,cno)</span><br><span class="line">values(&#39;2019001&#39;,&#39;0012&#39;),(&#39;2019002&#39;,&#39;0013&#39;),(&#39;2019003&#39;,&#39;0014&#39;);</span><br></pre></td></tr></table></figure>
-
-<p>1.1用<strong>set语句</strong>插入记录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into tb_student</span><br><span class="line">set sno&#x3D;&#39;0081101&#39;,sname&#x3D;&#39;王林&#39;,ssex&#x3D;defaul,sage&#x3D;21,</span><br><span class="line">tel&#x3D;&#39;18011112222&#39;,classname&#x3D;&#39;08网络1班&#39;,edate&#x3D;&#39;1994-2-10&#39;;</span><br></pre></td></tr></table></figure>
-<p>2.从已有数据表中插入新纪录<br>  insert into 表名 select from 要克隆的表名；</p>
-<p>例1将 stumarkdb数据库中的 tb_course表记录插入到 cylstumarkdb的 tb_course表中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use cylstumarkdb;&#x2F;&#x2F;进入要插入的数据库</span><br><span class="line">insert into tb_course select*from studentdb.tb_course;&#x2F;&#x2F;要规范到数据库名，表名</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1840,7 +1832,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
