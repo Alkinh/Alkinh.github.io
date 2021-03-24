@@ -1148,7 +1148,7 @@
 <li><p>MVVM支持双向绑定，意思就是当M层数据进行修改时，VM层会监测到变化，并且通知V层进行相应的修改，反之修改V层则会通知M层数据进行修改，以此也实现了视图与模型层的相互解耦；</p>
 </li>
 <li><p>关系图</p>
-<p><img src="%5CVue%E4%B8%AD%E7%9A%84MVVM%5C1.webp" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/1.webp" alt=""></p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">案例2</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line"></span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;			view</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    </span><br><span class="line">      var app &#x3D; new Vue(&#123;                       viewmodel</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;									model</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        methods: &#123;</span><br><span class="line">          add: function () &#123;</span><br><span class="line">            this.num++;</span><br><span class="line">          &#125;,</span><br><span class="line">          sub: function () &#123;</span><br><span class="line">            this.num--;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
@@ -1156,7 +1156,7 @@
 <ul>
 <li>计数器中的mvvm</li>
 </ul>
-<p><img src="%5CVue%E4%B8%AD%E7%9A%84MVVM%5C%E8%AE%A1%E6%95%B0%E5%99%A8%E4%B8%AD%E7%9A%84mvvm.png" alt="计数器中的mvvm"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/%E8%AE%A1%E6%95%B0%E5%99%A8%E4%B8%AD%E7%9A%84mvvm.png" alt=""></p>
 
           
         
