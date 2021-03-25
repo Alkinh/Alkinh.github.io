@@ -248,6 +248,373 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/24/V-bind%E7%BB%91%E5%AE%9Astyle-Vue18-19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/24/V-bind%E7%BB%91%E5%AE%9Astyle-Vue18-19/" itemprop="url">V-bind绑定style_Vue18.19</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-24T21:51:01+08:00">
+                2021-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="V-bind绑定style-Vue18-19"><a href="#V-bind绑定style-Vue18-19" class="headerlink" title="V-bind绑定style Vue18.19"></a>V-bind绑定style Vue18.19</h1><ol>
+<li>可以利用V-bind:style来绑定一些css内联样式</li>
+</ol>
+<ol start="2">
+<li><p>在写css属性名时，比如font-size</p>
+<ul>
+<li><p>可以使用驼峰式：<strong>fontSize</strong></p>
+</li>
+<li><p>或短横线分隔(用单引号括起来)：<strong>’font-size’</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :style&#x3D;&quot;&#123;key(属性名): value：(属性值)&gt;hello world&lt;&#x2F;h2&gt;</span><br><span class="line">&#39;50px&#39;必须加上单引号,否则是当做一个变量去解析</span><br><span class="line">&lt;h2 :style&#x3D;&quot;&#123;fontSize: &#39;50px&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li>绑定方式一：对象语法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:style&#x3D;&quot;&#123;color: currentColor,fontSize: fontSize + &#39;px&#39;&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>style后面跟的是一个对象类型<ul>
+<li>对象的key是css属性名称</li>
+<li>对象的value是具体赋的值，值可以来自于data中的属性</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>绑定方式二：数组语法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:style&#x3D;&quot;[baseStyles,overidingStyles]&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>styte后面跟的是一个数组类型<ul>
+<li>多个值，分割即可。</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/24/V-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass-Vue16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/24/V-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass-Vue16/" itemprop="url">V-bind动态绑定class-Vue16</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-24T20:12:02+08:00">
+                2021-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="V-bind动态绑定class-Vue16"><a href="#V-bind动态绑定class-Vue16" class="headerlink" title="V-bind动态绑定class-Vue16"></a>V-bind动态绑定class-Vue16</h1><ol>
+<li><p>绑定方式：对象语法</p>
+<ul>
+<li>对象语法的含义是:class后面跟的是一个对象</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>用法一：直接通过<code>{}</code>绑定一个类(对象语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;&#123;&#39;active&#39;:isActive&quot;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>语法二：也可以通过判断，传入多个值（对象语法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>语法三：和普通的类同时存在，并不冲突（对象语法）</p>
+<p>注：如果 isActive和 IsLine都为true，那么会有 title/active/line三个类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p>语法四：如果过于复杂，可以放在一个methods或者computed中(对象语法)</p>
+<p>注：classes是一个计算属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;classes&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li><p>绑定对象：数组语法</p>
+<ul>
+<li>数组语法的含义是：class后面跟的是一个数组</li>
+</ul>
+</li>
+</ol>
+<ol start="7">
+<li><p>用法一：直接通过{}绑定一个类(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;[&#39;active&#39;]&quot;&gt;Hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="8">
+<li><p>用法二：也可以传入多个值(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;[&#39;active&#39;,&#39;line&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="9">
+<li><p>用法三：和普通的类同时存在，并不冲突</p>
+<p>注：会有 title/active/line三个类(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;te&quot; :class&#x3D;&quot;[&#39;active&#39;,&#39;line&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="10">
+<li>用法四：如果过于复杂，可以放在一个methods或者computed中(对象语法)</li>
+</ol>
+<p>​       注：classes是一个计算属性(数组语法)</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;classes&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure></code></pre><hr>
+<ol start="6">
+<li><p>练习</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    .active &#123;</span><br><span class="line">      color: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;style&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2 :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;h2 :class&#x3D;&quot;getClasses()&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;btnClick&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          msg: &#39;你好啊&#39;,</span><br><span class="line">          isActive: true,</span><br><span class="line">          isLine: true,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          btnClick: function () &#123;</span><br><span class="line">            this.isActive &#x3D; !this.isActive;</span><br><span class="line">          &#125;,</span><br><span class="line">          getClasses: function () &#123;</span><br><span class="line">            return &#123; active: this.isActive, line: this.isLine &#125;;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/24/%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93-3-21/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1447,291 +1814,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/" itemprop="url">hello Vue 的编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:35:20+08:00">
-                2021-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Hello-Vue-的编程"><a href="#Hello-Vue-的编程" class="headerlink" title="Hello Vue 的编程"></a>Hello Vue 的编程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      &#x2F;&#x2F;let(变量) const(常量)</span><br><span class="line">      const app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;, &#x2F;&#x2F;用于挂载元素的管理</span><br><span class="line">        data: &#123;</span><br><span class="line">          &#x2F;&#x2F;定义数据</span><br><span class="line">          message: &#39;hello world!&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码做了什么"><a href="#代码做了什么" class="headerlink" title="代码做了什么"></a>代码做了什么</h2><ul>
-<li>创建vue对象的时候，传入了一些 options：<ul>
-<li>{}中包含了el属性：该属性决定了这个ue对象挂载到哪个元素上，很明显，我们这里是挂载到了id为app的元素上</li>
-<li>{}中包含了data属性：该属性中通常会存储一些数据<ul>
-<li>这些数据可以是我们直接定义出来的，比如像上面这样。</li>
-<li>也可能是来自网络，从服务器加载的。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>游览器执行代码的流程<ul>
-<li>执行到第二个<script>前还是显示原来的代码</li>
-<li>执行到第二个<script>后开始创建Vue实例，并且对html进行解析和修改</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/" itemprop="url">黑马html课程笔记5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-03T13:05:24+08:00">
-                2021-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="P21-22-相对路径"><a href="#P21-22-相对路径" class="headerlink" title="P21.22 相对路径"></a>P21.22 相对路径</h1><ol>
-<li>相对路径：<br>以引用文件所在位置为参考基础，而建立出的目录路径。（简单来说就是图片相当于HTML页面的位置）   </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>相对路径分类</th>
-<th>符号</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>同一级路径</td>
-<td></td>
-<td>图像文件位于HTML文件同一级如《img src=”baidu.gif”/》</td>
-</tr>
-<tr>
-<td>下一级路径</td>
-<td>/</td>
-<td>图像文件位于HTML文件下一级如《img src=”images/baidu.gif”/》</td>
-</tr>
-<tr>
-<td>上一级路径</td>
-<td>../</td>
-<td>图像文件位于HTML文件上一级如《img src=”../images/baidu.gif”/》</td>
-</tr>
-</tbody></table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1786,7 +1868,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -248,6 +248,291 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/" itemprop="url">hello Vue 的编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:35:20+08:00">
+                2021-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Hello-Vue-的编程"><a href="#Hello-Vue-的编程" class="headerlink" title="Hello Vue 的编程"></a>Hello Vue 的编程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      &#x2F;&#x2F;let(变量) const(常量)</span><br><span class="line">      const app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;, &#x2F;&#x2F;用于挂载元素的管理</span><br><span class="line">        data: &#123;</span><br><span class="line">          &#x2F;&#x2F;定义数据</span><br><span class="line">          message: &#39;hello world!&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码做了什么"><a href="#代码做了什么" class="headerlink" title="代码做了什么"></a>代码做了什么</h2><ul>
+<li>创建vue对象的时候，传入了一些 options：<ul>
+<li>{}中包含了el属性：该属性决定了这个ue对象挂载到哪个元素上，很明显，我们这里是挂载到了id为app的元素上</li>
+<li>{}中包含了data属性：该属性中通常会存储一些数据<ul>
+<li>这些数据可以是我们直接定义出来的，比如像上面这样。</li>
+<li>也可能是来自网络，从服务器加载的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>游览器执行代码的流程<ul>
+<li>执行到第二个<script>前还是显示原来的代码</li>
+<li>执行到第二个<script>后开始创建Vue实例，并且对html进行解析和修改</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/" itemprop="url">黑马html课程笔记5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-03T13:05:24+08:00">
+                2021-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="P21-22-相对路径"><a href="#P21-22-相对路径" class="headerlink" title="P21.22 相对路径"></a>P21.22 相对路径</h1><ol>
+<li>相对路径：<br>以引用文件所在位置为参考基础，而建立出的目录路径。（简单来说就是图片相当于HTML页面的位置）   </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>相对路径分类</th>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>同一级路径</td>
+<td></td>
+<td>图像文件位于HTML文件同一级如《img src=”baidu.gif”/》</td>
+</tr>
+<tr>
+<td>下一级路径</td>
+<td>/</td>
+<td>图像文件位于HTML文件下一级如《img src=”images/baidu.gif”/》</td>
+</tr>
+<tr>
+<td>上一级路径</td>
+<td>../</td>
+<td>图像文件位于HTML文件上一级如《img src=”../images/baidu.gif”/》</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1477,359 +1762,6 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/08/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9516/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/08/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9516/" itemprop="url">MySQL网课记录16</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T13:55:37+08:00">
-                2020-05-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3-6-9-连接查询"><a href="#3-6-9-连接查询" class="headerlink" title="3.6.9 连接查询"></a>3.6.9 连接查询</h1><p>1.连接查询<br>  在 SELECT语句中，如果FROM子句引用了多个表源或视图，则可以使用JOIN关键字指示指定的连接操作在指定的表源和视图之间执行。<br>  语法格式：<br>  join_table:<br>    table_reference[INNER|CROSS]JOIN table_factor [join_condition]<br>    | table_reference{LEFT|RIGHT}[OUTER]JOIN table_reference join_condition<br>  其中，join_condotion:<br>   ON条件<br>  |USING （column_list)</p>
-<p>1.1例</p>
-<p>(1)查找选修了c001课程且成绩在80分以上的学生姓名及成绩。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select sname,grade</span><br><span class="line">from tb_student s join tb_mark m &#x2F;&#x2F;要给两个表起别名</span><br><span class="line">on s.sno&#x3D;m.sno  &#x2F;&#x2F; 要两个表中有相同的字段名</span><br><span class="line">where cno&#x3D;&#39;c001&#39; and grde&gt;&#x3D;80;</span><br></pre></td></tr></table></figure>
-
-<p>(2)查询出每个班级每门课程的平均分，显示出班级名称、课程名称及平均分，按平均分查询。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select classname,cname,avg(grade) 平均分,count(grade) 考试人数</span><br><span class="line">from tb_student s join tb_course c join tb_mark m</span><br><span class="line">on s.sno&#x3D;m.sno and c.cno&#x3D;m.cno &#x2F;&#x2F;表之间相同的字段名</span><br><span class="line">grour by classname,cname  </span><br><span class="line">order by avg(grade);</span><br></pre></td></tr></table></figure>
-
-<p>2.外连接<br>  制定了OURTER关键字的连接为外连接。<br>  外连接包括：<br>  左外连接（ LEFT OUTER JOIN）：结果表中除了匹配行外，还包括左表有的但右表中不匹配的行，对于这样的行，从右表被选择的字段设置为NULL。<br>  右外连接（RIGHT OUTER JOIN）：结果表中除了匹配行外，还包括右表有的但左表中不匹配的行，对于这样的行，从左表被选择的字段设置为NULL。</p>
-<p>2.1例<br>(1)查找所有学生情况及他们选课情况，若学生未选修任何课，也要包括其情况。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">se;ecr s.*,cno,grade</span><br><span class="line">from tb_student s left outer join tb_mark m</span><br><span class="line">on s.sno&#x3D;m.sno;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9515/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9515/" itemprop="url">MySQL网课记录15</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T16:10:09+08:00">
-                2020-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3-6-8分组查询（聚合函数）"><a href="#3-6-8分组查询（聚合函数）" class="headerlink" title="3.6.8分组查询（聚合函数）"></a>3.6.8分组查询（聚合函数）</h1><p>1.聚合函数<br> 聚合函数常常用于对一组值进行计算，然后返回单个值。除 COUNT函数外，聚合函数都会忽略空值。聚合函数通常与GROUP BY子句一起使用。如果包含聚合函数的 SELECT语句中有 GROUP BY子句，则会返回多行记录，如果没有，则 SELECT语句只产生一行记录作为结果。</p>
-<p>1.1常用聚合函数表</p>
-<table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>COUNT</td>
-<td>求组中项数，返回int类型整数</td>
-</tr>
-<tr>
-<td>MAX</td>
-<td>求最大值</td>
-</tr>
-<tr>
-<td>MIN</td>
-<td>求最小值</td>
-</tr>
-<tr>
-<td>SUM</td>
-<td>返回表达式中所有值的和</td>
-</tr>
-<tr>
-<td>AVG</td>
-<td>求组中值的平均值</td>
-</tr>
-</tbody></table>
-<p>1.2 COUNT函数<br>    聚合函数中最经常使用的是 COUNT函数，用于统计组中满是条件的行数或总行数，返回 SELECT语句检索到的行中非NULL值的数目，若找不到匹配的行，则返回0。<br>    语法格式：<br>    COUNT（{[ALL|DISTINCT]表达式}|*)</p>
-<p>1.2.1 示例<br>(1) 求学生的总人数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) 学生总数 from tb_student;</span><br></pre></td></tr></table></figure>
-
-<p>(2)求男生的人数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) 男生总数 from tb_student where ssex&#x3D;&#39;男&#39;; &#x2F;&#x2F; 性别为null的学生会显示在男女两边</span><br></pre></td></tr></table></figure>
-
-<p>(3)求填了性别的学生的总人数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(ssex) 填了性别的学生的总人数 from tb_student；</span><br></pre></td></tr></table></figure>
-
-<p>(4)求有学生的班级总数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(distinct classname) 有学生的班级总数 from tb_student; &#x2F;&#x2F; distinct 不重复</span><br></pre></td></tr></table></figure>
-
-<p>1.3 MAX和MIN<br>    MAX和MIN分别用于求表达式中所有值项的最大值与最小值，语法格式为：<br>    MAX/MIN（[ALL|DISTINCT]表达式）<br>    其中，表达式可以是常量、字段、函数或表达式，其数据类型可以是数字字符和时间日期类型。</p>
-<p>1.3.1 示例<br>(1)求c001课程的最高分和最低分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select max（grade) 最高分，min(grade) 最低分 from tb_mark where cno&#x3D;&#39;c001&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>1.4 SUM函数和AVG函数<br>    SUM和AVG分别用于求表达式中所有值项的总和与平均值，语法格式为：<br>    SUM/AVG([ALL| DISTINCT]表达式)<br>    其中，表达式可以是常量、字段、函数或表达式，其数据类型只能是数值型数据。</p>
-<p>1.4.1 示例<br>(1) 求c001课程的最高分、最低分、选修人数、总分和平均分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select max(grade)最高分,min(grade)最低分,count(*)选修人数,sum(grade)总分,avg(grade)平均分</span><br><span class="line">from tb_mark where cno&#x3D;&#39;c001&#39;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1884,7 +1816,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

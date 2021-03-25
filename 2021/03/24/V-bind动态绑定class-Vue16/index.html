@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="-前端," />
+  <meta name="keywords" content="-Vue," />
 
 
 
@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="（黑马33-39） 表格标签的基本使用 表格主要用于显示、展示数据，因为它可以让数据显示的非常的规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个清爽简约的表格能够把繁琐的数据表现得很有条理。   表格的基本语法 123456&lt;table&gt;        &lt;tr&gt;        	&lt;th&gt;&lt;&#x2F;th&gt;">
+<meta name="description" content="V-bind动态绑定class-Vue16 绑定方式：对象语法  对象语法的含义是:class后面跟的是一个对象     用法一：直接通过{}绑定一个类(对象语法) 1&lt;h2 :class&#x3D;&quot;&amp;#123;&#39;active&#39;:isActive&quot;&amp;#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;       语法二：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="表格标签的基本使用-黑马33~39">
-<meta property="og:url" content="https://alkinh.github.io.git/2021/03/23/%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-%E9%BB%91%E9%A9%AC33-39/index.html">
+<meta property="og:title" content="V-bind动态绑定class-Vue16">
+<meta property="og:url" content="https://alkinh.github.io.git/2021/03/24/V-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass-Vue16/index.html">
 <meta property="og:site_name" content="存笔记的博客">
-<meta property="og:description" content="（黑马33-39） 表格标签的基本使用 表格主要用于显示、展示数据，因为它可以让数据显示的非常的规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个清爽简约的表格能够把繁琐的数据表现得很有条理。   表格的基本语法 123456&lt;table&gt;        &lt;tr&gt;        	&lt;th&gt;&lt;&#x2F;th&gt;">
-<meta property="article:published_time" content="2021-03-23T08:08:57.000Z">
-<meta property="article:modified_time" content="2021-03-23T08:09:41.703Z">
+<meta property="og:description" content="V-bind动态绑定class-Vue16 绑定方式：对象语法  对象语法的含义是:class后面跟的是一个对象     用法一：直接通过{}绑定一个类(对象语法) 1&lt;h2 :class&#x3D;&quot;&amp;#123;&#39;active&#39;:isActive&quot;&amp;#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;       语法二：">
+<meta property="article:published_time" content="2021-03-24T12:12:02.000Z">
+<meta property="article:modified_time" content="2021-03-24T13:02:52.993Z">
 <meta property="article:author" content="Alkinh">
-<meta property="article:tag" content="-前端">
+<meta property="article:tag" content="-Vue">
 <meta name="twitter:card" content="summary">
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://Alkinh.github.io.git/2021/03/23/表格标签的基本使用-黑马33-39/"/>
+  <link rel="canonical" href="https://Alkinh.github.io.git/2021/03/24/V-bind动态绑定class-Vue16/"/>
 
 
 
 
 
-  <title>表格标签的基本使用-黑马33~39 | 存笔记的博客</title>
+  <title>V-bind动态绑定class-Vue16 | 存笔记的博客</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/23/%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-%E9%BB%91%E9%A9%AC33-39/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/24/V-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass-Vue16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">表格标签的基本使用-黑马33~39</h1>
+          <h1 class="post-title" itemprop="name headline">V-bind动态绑定class-Vue16</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-23T16:08:57+08:00">
-                2021-03-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-24T20:12:02+08:00">
+                2021-03-24
               </time>
             
 
@@ -319,97 +319,89 @@
       
 
       
-        <h1 id="（黑马33-39）-表格标签的基本使用"><a href="#（黑马33-39）-表格标签的基本使用" class="headerlink" title="（黑马33-39） 表格标签的基本使用"></a>（黑马33-39） 表格标签的基本使用</h1><ol>
-<li>表格主要<strong>用于显示、展示数据</strong>，因为它可以让数据显示的非常的规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个清爽简约的表格能够把繁琐的数据表现得很有条理。</li>
+        <h1 id="V-bind动态绑定class-Vue16"><a href="#V-bind动态绑定class-Vue16" class="headerlink" title="V-bind动态绑定class-Vue16"></a>V-bind动态绑定class-Vue16</h1><ol>
+<li><p>绑定方式：对象语法</p>
+<ul>
+<li>对象语法的含义是:class后面跟的是一个对象</li>
+</ul>
+</li>
 </ol>
 <ol start="2">
-<li><p>表格的基本语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">        	&lt;th&gt;&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;td&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<li><p>用法一：直接通过<code>{}</code>绑定一个类(对象语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;&#123;&#39;active&#39;:isActive&quot;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p><code>&lt;tablie&gt;</code>标签是用来定义表格的</p>
-</li>
-<li><p><code>&lt;tr&gt;</code>标签用于定义表格中的行，必须嵌套在<code>&lt;table&gt;</code>标签中</p>
-</li>
-<li><p><code>&lt;th&gt;</code>标签表示表头单元格，表头单元格位于表格的第一行或第一列，表头单元格里面的文本内容加居中显示</p>
-</li>
-<li><p><code>&lt;td&gt;</code>标签用于定义表格中的单元格,必须嵌套在<code>&lt;tr&gt;</code>标签中</p>
-</li>
-</ul>
+
+
 </li>
 </ol>
 <ol start="3">
-<li><p>表格属性</p>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>属性值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><del>align</del></td>
-<td><del>left、center、right</del></td>
-<td><del>规定表格相对元素的对其方式</del>（现版本已弃用，用margin来代替）</td>
-</tr>
-<tr>
-<td>border</td>
-<td>1或“ ”</td>
-<td>规定表格单元是否拥有边框，默认为“ ”,表示没有边框</td>
-</tr>
-<tr>
-<td>cellpadding</td>
-<td>像素值</td>
-<td>规定单元边沿与其内容之间的空白，默认为一像素。</td>
-</tr>
-<tr>
-<td>cellspacing</td>
-<td>像素值</td>
-<td>规定单元格之间的空白，默认2像素</td>
-</tr>
-<tr>
-<td>width</td>
-<td>像素值</td>
-<td>规定表格的宽度</td>
-</tr>
-</tbody></table>
-<ul>
-<li>上面的属性要写到<code>&lt;table&gt;</code>里面</li>
-</ul>
+<li><p>语法二：也可以通过判断，传入多个值（对象语法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 <ol start="4">
-<li><p>表格结构标签</p>
-<ul>
-<li><p>使用场景：因为表格可能很长为了更好的表示表格的语义，可以将表格分割成表格头部和表格主体两大部分</p>
-</li>
-<li><p>在表格标签中，分别用：<strong><code>&lt;thead&gt;</code>标签表格的头部区域、<code>&lt;tbody&gt;</code>标签表格的主体区域</strong>这样可以更好的分清表格结构。</p>
-<ul>
-<li><p><code>&lt;thead&gt;</code>：用于定义表格的头部。内部必须拥有<tr>标签。一般是位于第一行。</p>
-</li>
-<li><p><code>&lt;tbody&gt;</code>：用于定义表格主体，主要用于存放数据本体</p>
-</li>
-</ul>
-</li>
-</ul>
+<li><p>语法三：和普通的类同时存在，并不冲突（对象语法）</p>
+<p>注：如果 isActive和 IsLine都为true，那么会有 title/active/line三个类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 <ol start="5">
-<li><p>合并单元格</p>
-<ul>
-<li><p>跨行合并：rowspan=“合并单元格的个数”，最上侧单元格为目标单元格，写合并代码。</p>
+<li><p>语法四：如果过于复杂，可以放在一个methods或者computed中(对象语法)</p>
+<p>注：classes是一个计算属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;classes&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
-<li><p>跨列合并：colspan=”合并单元格的个数”，最左侧单元格为目标单元格，写合并代码。</p>
-</li>
-<li><p>合并单元格三部曲：</p>
+</ol>
+<hr>
+<ol start="6">
+<li><p>绑定对象：数组语法</p>
 <ul>
-<li>先确定跨行还是跨列合并</li>
-<li>找到目标单元格，写上合并的单元格数量。比如<code>&lt;td colspan=&quot;2&gt;&lt;td&gt;&quot;</code></li>
-<li>删除多余的单元格</li>
+<li>数组语法的含义是：class后面跟的是一个数组</li>
 </ul>
 </li>
-</ul>
+</ol>
+<ol start="7">
+<li><p>用法一：直接通过{}绑定一个类(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;[&#39;active&#39;]&quot;&gt;Hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="8">
+<li><p>用法二：也可以传入多个值(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;[&#39;active&#39;,&#39;line&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="9">
+<li><p>用法三：和普通的类同时存在，并不冲突</p>
+<p>注：会有 title/active/line三个类(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;te&quot; :class&#x3D;&quot;[&#39;active&#39;,&#39;line&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="10">
+<li>用法四：如果过于复杂，可以放在一个methods或者computed中(对象语法)</li>
+</ol>
+<p>​       注：classes是一个计算属性(数组语法)</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;classes&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure></code></pre><hr>
+<ol start="6">
+<li><p>练习</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    .active &#123;</span><br><span class="line">      color: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;style&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2 :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;h2 :class&#x3D;&quot;getClasses()&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;btnClick&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          msg: &#39;你好啊&#39;,</span><br><span class="line">          isActive: true,</span><br><span class="line">          isLine: true,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          btnClick: function () &#123;</span><br><span class="line">            this.isActive &#x3D; !this.isActive;</span><br><span class="line">          &#125;,</span><br><span class="line">          getClasses: function () &#123;</span><br><span class="line">            return &#123; active: this.isActive, line: this.isLine &#125;;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 
@@ -429,7 +421,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># -前端</a>
+            <a href="/tags/Vue/" rel="tag"># -Vue</a>
           
         </div>
       
@@ -442,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/23/%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5-%E9%BB%91%E9%A9%AC06/" rel="next" title="锚点链接-黑马06">
-                <i class="fa fa-chevron-left"></i> 锚点链接-黑马06
+              <a href="/2021/03/24/%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93-3-21/" rel="next" title="轮播图作业总结_3.21">
+                <i class="fa fa-chevron-left"></i> 轮播图作业总结_3.21
               </a>
             
           </div>
@@ -452,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/03/23/Vue%E7%9A%84%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4-Vue13/" rel="prev" title="Vue的其他指令_Vue13">
-                Vue的其他指令_Vue13 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/03/24/V-bind%E7%BB%91%E5%AE%9Astyle-Vue18-19/" rel="prev" title="V-bind绑定style_Vue18.19">
+                V-bind绑定style_Vue18.19 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#（黑马33-39）-表格标签的基本使用"><span class="nav-number">1.</span> <span class="nav-text">（黑马33-39） 表格标签的基本使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#V-bind动态绑定class-Vue16"><span class="nav-number">1.</span> <span class="nav-text">V-bind动态绑定class-Vue16</span></a></li></ol></div>
             
 
           </div>
