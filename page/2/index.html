@@ -248,6 +248,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/%E5%B0%8F%E6%A1%88%E4%BE%8B-%E8%AE%A1%E6%95%B0%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/13/%E5%B0%8F%E6%A1%88%E4%BE%8B-%E8%AE%A1%E6%95%B0%E5%99%A8/" itemprop="url">小案例-计数器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:41:36+08:00">
+                2021-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="小案例-计数器（06）"><a href="#小案例-计数器（06）" class="headerlink" title="小案例-计数器（06）"></a>小案例-计数器（06）</h1><ol>
+<li>新的属性：methods,用于在Vue对象中定义方法</li>
+<li>新的指令：@click，该指令用于监听某个元素的点击事件，并且需要指定当发生点击时，执行的方法（方法通常是 methods中定义的方法）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> 案例一</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          sub() &#123;</span><br><span class="line">            if (this.num &gt; 0) &#123;</span><br><span class="line">              this.num &#x3D; this.num - 1;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">              alert(&#39;不能再点了&#39;);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          add() &#123;</span><br><span class="line">            if (this.num &gt;&#x3D; 5) &#123;</span><br><span class="line">              alert(&#39;不能再点了&#39;);</span><br><span class="line">              return;</span><br><span class="line">            &#125;</span><br><span class="line">            this.num &#x3D; this.num + 1;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">案例2</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          add: function () &#123;</span><br><span class="line">            this.num++;</span><br><span class="line">          &#125;,</span><br><span class="line">          sub: function () &#123;</span><br><span class="line">            this.num--;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Vue%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%8E%8C%E6%8F%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1496,204 +1623,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/06/07/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9518/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/06/07/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9518/" itemprop="url">MySQL网课记录18</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-07T14:26:19+08:00">
-                2020-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#4.2 数据库分区</p>
-<p>4.2.1 分区概述<br>  表分区就是将一个大表按照mysq提供的几种方式，分成几个小表.<br>  如果一个表的数据量太大，不仅查找数据的效率低，而且难以找到一块集中的存储空间来存放。通过分区可以在物理层面将一个表分割成许多个小块进行存储，这样我们在査找数据时，就不需要进行全表查找了，只需要知道这条数据所在的块号，然后根据块号直接定位相应的块进行查找即可。分区也可以将数据分配到不同的磁盘中，以解决一块磁盘放不下整个表的问题。</p>
-<p>4.2.2 MySQL分区的优点和不足</p>
-<table>
-<thead>
-<tr>
-<th>优点</th>
-<th>不足</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>可以存储更多的数据</td>
-<td>一个表最多只能有1024个分区</td>
-</tr>
-<tr>
-<td>优化查询</td>
-<td>在 MySQL5.1之后才支持分区</td>
-</tr>
-<tr>
-<td>对于不需要的数据可通过删除区块快速删除</td>
-<td>MySQL5.1只支持整型表达式进行分区， MySQL5.5后可以支持其他类型表达式进 行分区，也不是所有类型</td>
-</tr>
-<tr>
-<td>跨多个磁盘来分散数据查询，可获得更大的查询吞吐量</td>
-<td>分区表无法使用外键约束</td>
-</tr>
-</tbody></table>
-<p>4.2.3 分区类型</p>
-<ol>
-<li>RANGE分区<br>RANGE分区是基于一个给定连续区间范围，把记录分配到不同的分区。</li>
-<li>LIST分区<br>LIST分区类似与 RANGE分区，区别在于LIST分区基于列值匹配一个离散值集合中的某个值来进行分区。</li>
-<li>HASH分区<br>HAST分区是基于用户定义的表达式返回值来选择分区，该表达式对要插入到表中的列值进行哈希计算（Hash计算）。</li>
-<li>KEY分区<br>KEY分区类似与HASH分区，但是HASH分区允许用户使用自定义表达式，而KEY分区不允许，它需要使用 My SQL提供的HASH函数，同时HASH分区只支持整数类型，而KEY分区支持除BLOB和TEXT类型外的其他类型</li>
-</ol>
-<p>4.2.4<br>  (1)RANGE分区<br>  RANGE分区即范围分区，根据区间来判断位于哪个分区。这些分区要连续且不能相互重叠，可以使用VALUES LESS THAN操作符进行定义RANGE分区只能匹配整型列或表达式分区。</p>
-<p>  (1.1)RANGE分区适用场合<br>  执行包含分区键的查询，MySαL可以迅速定位需要扫描的分区，而不需要全表搜索，从而大大提高查询效率。</p>
-<p>  (1.3)示例<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create table tb_range_blog(			&#x2F;&#x2F;创建一个叫 tb_range_blog 的日志表</span><br><span class="line">id bigint unsigned,					&#x2F;&#x2F;日志id</span><br><span class="line">userid int unsigned,					&#x2F;&#x2F;用户id</span><br><span class="line">title varcher(225),					&#x2F;&#x2F;日志标题</span><br><span class="line">content text,						&#x2F;&#x2F;日志内容</span><br><span class="line">pubtime datetime)					&#x2F;&#x2F;日志产生时间</span><br><span class="line">partition by range(userid)(				&#x2F;&#x2F;告诉系统通过 userid 进行 范围(range) 分区</span><br><span class="line">partition part1 values less than(5000000),		&#x2F;&#x2F;分区一存放userid小于5000000的数据</span><br><span class="line">partition part2 values less than(10000000),	&#x2F;&#x2F;分区二存放userid大于5000000但是小于10000000的数据</span><br><span class="line">partition part3 values less than(15000000),	&#x2F;&#x2F;分区三存放userid大于1000000但是小于15000000的数据</span><br><span class="line">partition part4 values less than(maxvalue));	&#x2F;&#x2F;分区四存放userid大于15000000的数据</span><br></pre></td></tr></table></figure></p>
-<p>  (1.4)示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">alter table tb_range_blog				&#x2F;&#x2F;修改tb_range_blog表的的结构</span><br><span class="line">partition by range(year(pubtime))(		&#x2F;&#x2F;依据年份进行分区</span><br><span class="line">partition part1 values less than(2000),	</span><br><span class="line">pratition part2 values less than(2010),</span><br><span class="line">partition part3 values less than(2020),</span><br><span class="line">partition part4 values less than(2020));</span><br></pre></td></tr></table></figure>
-
-<p>  (1.5)range分区适用场合<br>  执行包含分区键的查询， MySQL可以迅速定位需要扫描的分区，而不需要全表搜索，从而大大提高查询效率。</p>
-<p>  (1.6)示例<br>  此查询只需遍历2000年前的记录所以只需扫描part1.<br><code>select count(*) 日志数 from tb_range_blog where year(pubtime)&lt;1998;</code></p>
-<p>  (2.1)RANGE COLUMNS分区<br>  MySQL5.5改进了 RANGE分区功能，提供了 RANGE COLUMNS分区， RANGE COLUMNS不接受表达式，只能是列名； RANGE COLUMNS支持多列分区； RANGE COLUMNS不限于整数对象，date、 datetime、 string都可作为分区列</p>
-<p>  4.2.5<br>  (1)LISt分区<br>  LIST分区是基于列值匹配一个离散值集合中的某个值来进行分区。LIST分区通过使用 PARTITION BY LIST（expr）来实现，其中“expr”是某列值或基于某列值返回一个整型值的表达式，然后通过“ VALUES IN(values_list)”的方式来定义每个分区。MySQL5.1中，只能匹配整型列表。MySQL5.5后支持非整型列分区。</p>
-<p>  (1.1）示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create table tb_list_blog(			</span><br><span class="line">id bigint unsigned,</span><br><span class="line">userid int unsigned,</span><br><span class="line">title varcher(255),</span><br><span class="line">content text,</span><br><span class="line">pubtime datetime )</span><br><span class="line">partition by list(month(pubtime))(  &#x2F;&#x2F;以月份进行分区</span><br><span class="line">partition part1 values in(1,3,4),</span><br><span class="line">partition part2 values in(2,5,6),</span><br><span class="line">partition part1 values in(null,7,8,9),	&#x2F;&#x2F;没有时间的放到这个分区</span><br><span class="line">partition part1 values in(10,11,12);&#39;</span><br></pre></td></tr></table></figure>
-
-<p>  4.2.6<br>  (1)HASH分区<br>  HASH分区是基于用户定义的表达式返回值进行选择的分区，该表达式使用将要插入表中的列值进行计算。这个表达式需要产生非负整数。使用HASH分区来分割一个表，则应在 CREATE TABLE语句上添加“ PARTITION BY HASH（expr）”语句，其中“expr”是一个返回一个整数的表达式。此外，在后面再添加一个“ PARTITIONS nu”子句，其中num也是一个非负的整数，它表示表将被分割成分区的数量。如果没有包含“PARTITIONS num”子句，那么分区的数量会默认为1、1HASH分区的优点在于数据分布均匀。</p>
-<p>  (2)示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table tb_hash_blog(</span><br><span class="line">id bigint umsigned,</span><br><span class="line">unserid int unsigned,</span><br><span class="line">title varchar(255),</span><br><span class="line">connet text,</span><br><span class="line">pubtime datetime ）</span><br><span class="line">partition by hash(userid) partition 5;		&#x2F;&#x2F; 以 userid(用户id）进行hash分区，分五个区</span><br></pre></td></tr></table></figure>
-
-<p>  4.2.7<br>  (1)key分区<br>  KEY分区类似HASH分区，区别在于以下几点<br>  1.KEY分区允许多列，而HASH分区只允许一列<br>  2.如果有主键或唯一键的情况下，KEY分区列可不指定，默认为主键或唯键，如果没有主键或唯一键，则必须显性指定列。<br>  3.KEY分区对象必须为列，而不能是基于列的表达式<br>  4.KEY分区和HASH分区的算法不一样。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1743,7 +1677,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
