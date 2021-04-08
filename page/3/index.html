@@ -248,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/06/07/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9518/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/%E5%B0%8F%E6%A1%88%E4%BE%8B-%E8%AE%A1%E6%95%B0%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -267,7 +267,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/06/07/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9518/" itemprop="url">MySQL网课记录18</a></h1>
+                <a class="post-title-link" href="/2021/03/13/%E5%B0%8F%E6%A1%88%E4%BE%8B-%E8%AE%A1%E6%95%B0%E5%99%A8/" itemprop="url">小案例-计数器</a></h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-07T14:26:19+08:00">
-                2020-06-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:41:36+08:00">
+                2021-03-13
               </time>
             
 
@@ -289,28 +289,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -341,59 +319,15 @@
       
         
           
-            <p>#4.2 数据库分区</p>
-<p>4.2.1 分区概述<br>  表分区就是将一个大表按照mysq提供的几种方式，分成几个小表.<br>  如果一个表的数据量太大，不仅查找数据的效率低，而且难以找到一块集中的存储空间来存放。通过分区可以在物理层面将一个表分割成许多个小块进行存储，这样我们在査找数据时，就不需要进行全表查找了，只需要知道这条数据所在的块号，然后根据块号直接定位相应的块进行查找即可。分区也可以将数据分配到不同的磁盘中，以解决一块磁盘放不下整个表的问题。</p>
-<p>4.2.2 MySQL分区的优点和不足</p>
-<table>
-<thead>
-<tr>
-<th>优点</th>
-<th>不足</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>可以存储更多的数据</td>
-<td>一个表最多只能有1024个分区</td>
-</tr>
-<tr>
-<td>优化查询</td>
-<td>在 MySQL5.1之后才支持分区</td>
-</tr>
-<tr>
-<td>对于不需要的数据可通过删除区块快速删除</td>
-<td>MySQL5.1只支持整型表达式进行分区， MySQL5.5后可以支持其他类型表达式进 行分区，也不是所有类型</td>
-</tr>
-<tr>
-<td>跨多个磁盘来分散数据查询，可获得更大的查询吞吐量</td>
-<td>分区表无法使用外键约束</td>
-</tr>
-</tbody></table>
-<p>4.2.3 分区类型</p>
-<ol>
-<li>RANGE分区<br>RANGE分区是基于一个给定连续区间范围，把记录分配到不同的分区。</li>
-<li>LIST分区<br>LIST分区类似与 RANGE分区，区别在于LIST分区基于列值匹配一个离散值集合中的某个值来进行分区。</li>
-<li>HASH分区<br>HAST分区是基于用户定义的表达式返回值来选择分区，该表达式对要插入到表中的列值进行哈希计算（Hash计算）。</li>
-<li>KEY分区<br>KEY分区类似与HASH分区，但是HASH分区允许用户使用自定义表达式，而KEY分区不允许，它需要使用 My SQL提供的HASH函数，同时HASH分区只支持整数类型，而KEY分区支持除BLOB和TEXT类型外的其他类型</li>
+            <h1 id="小案例-计数器（06）"><a href="#小案例-计数器（06）" class="headerlink" title="小案例-计数器（06）"></a>小案例-计数器（06）</h1><ol>
+<li>新的属性：methods,用于在Vue对象中定义方法</li>
+<li>新的指令：@click，该指令用于监听某个元素的点击事件，并且需要指定当发生点击时，执行的方法（方法通常是 methods中定义的方法）</li>
 </ol>
-<p>4.2.4<br>  (1)RANGE分区<br>  RANGE分区即范围分区，根据区间来判断位于哪个分区。这些分区要连续且不能相互重叠，可以使用VALUES LESS THAN操作符进行定义RANGE分区只能匹配整型列或表达式分区。</p>
-<p>  (1.1)RANGE分区适用场合<br>  执行包含分区键的查询，MySαL可以迅速定位需要扫描的分区，而不需要全表搜索，从而大大提高查询效率。</p>
-<p>  (1.3)示例<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create table tb_range_blog(			&#x2F;&#x2F;创建一个叫 tb_range_blog 的日志表</span><br><span class="line">id bigint unsigned,					&#x2F;&#x2F;日志id</span><br><span class="line">userid int unsigned,					&#x2F;&#x2F;用户id</span><br><span class="line">title varcher(225),					&#x2F;&#x2F;日志标题</span><br><span class="line">content text,						&#x2F;&#x2F;日志内容</span><br><span class="line">pubtime datetime)					&#x2F;&#x2F;日志产生时间</span><br><span class="line">partition by range(userid)(				&#x2F;&#x2F;告诉系统通过 userid 进行 范围(range) 分区</span><br><span class="line">partition part1 values less than(5000000),		&#x2F;&#x2F;分区一存放userid小于5000000的数据</span><br><span class="line">partition part2 values less than(10000000),	&#x2F;&#x2F;分区二存放userid大于5000000但是小于10000000的数据</span><br><span class="line">partition part3 values less than(15000000),	&#x2F;&#x2F;分区三存放userid大于1000000但是小于15000000的数据</span><br><span class="line">partition part4 values less than(maxvalue));	&#x2F;&#x2F;分区四存放userid大于15000000的数据</span><br></pre></td></tr></table></figure></p>
-<p>  (1.4)示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">alter table tb_range_blog				&#x2F;&#x2F;修改tb_range_blog表的的结构</span><br><span class="line">partition by range(year(pubtime))(		&#x2F;&#x2F;依据年份进行分区</span><br><span class="line">partition part1 values less than(2000),	</span><br><span class="line">pratition part2 values less than(2010),</span><br><span class="line">partition part3 values less than(2020),</span><br><span class="line">partition part4 values less than(2020));</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> 案例一</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          sub() &#123;</span><br><span class="line">            if (this.num &gt; 0) &#123;</span><br><span class="line">              this.num &#x3D; this.num - 1;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">              alert(&#39;不能再点了&#39;);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          add() &#123;</span><br><span class="line">            if (this.num &gt;&#x3D; 5) &#123;</span><br><span class="line">              alert(&#39;不能再点了&#39;);</span><br><span class="line">              return;</span><br><span class="line">            &#125;</span><br><span class="line">            this.num &#x3D; this.num + 1;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>  (1.5)range分区适用场合<br>  执行包含分区键的查询， MySQL可以迅速定位需要扫描的分区，而不需要全表搜索，从而大大提高查询效率。</p>
-<p>  (1.6)示例<br>  此查询只需遍历2000年前的记录所以只需扫描part1.<br><code>select count(*) 日志数 from tb_range_blog where year(pubtime)&lt;1998;</code></p>
-<p>  (2.1)RANGE COLUMNS分区<br>  MySQL5.5改进了 RANGE分区功能，提供了 RANGE COLUMNS分区， RANGE COLUMNS不接受表达式，只能是列名； RANGE COLUMNS支持多列分区； RANGE COLUMNS不限于整数对象，date、 datetime、 string都可作为分区列</p>
-<p>  4.2.5<br>  (1)LISt分区<br>  LIST分区是基于列值匹配一个离散值集合中的某个值来进行分区。LIST分区通过使用 PARTITION BY LIST（expr）来实现，其中“expr”是某列值或基于某列值返回一个整型值的表达式，然后通过“ VALUES IN(values_list)”的方式来定义每个分区。MySQL5.1中，只能匹配整型列表。MySQL5.5后支持非整型列分区。</p>
-<p>  (1.1）示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create table tb_list_blog(			</span><br><span class="line">id bigint unsigned,</span><br><span class="line">userid int unsigned,</span><br><span class="line">title varcher(255),</span><br><span class="line">content text,</span><br><span class="line">pubtime datetime )</span><br><span class="line">partition by list(month(pubtime))(  &#x2F;&#x2F;以月份进行分区</span><br><span class="line">partition part1 values in(1,3,4),</span><br><span class="line">partition part2 values in(2,5,6),</span><br><span class="line">partition part1 values in(null,7,8,9),	&#x2F;&#x2F;没有时间的放到这个分区</span><br><span class="line">partition part1 values in(10,11,12);&#39;</span><br></pre></td></tr></table></figure>
 
-<p>  4.2.6<br>  (1)HASH分区<br>  HASH分区是基于用户定义的表达式返回值进行选择的分区，该表达式使用将要插入表中的列值进行计算。这个表达式需要产生非负整数。使用HASH分区来分割一个表，则应在 CREATE TABLE语句上添加“ PARTITION BY HASH（expr）”语句，其中“expr”是一个返回一个整数的表达式。此外，在后面再添加一个“ PARTITIONS nu”子句，其中num也是一个非负的整数，它表示表将被分割成分区的数量。如果没有包含“PARTITIONS num”子句，那么分区的数量会默认为1、1HASH分区的优点在于数据分布均匀。</p>
-<p>  (2)示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table tb_hash_blog(</span><br><span class="line">id bigint umsigned,</span><br><span class="line">unserid int unsigned,</span><br><span class="line">title varchar(255),</span><br><span class="line">connet text,</span><br><span class="line">pubtime datetime ）</span><br><span class="line">partition by hash(userid) partition 5;		&#x2F;&#x2F; 以 userid(用户id）进行hash分区，分五个区</span><br></pre></td></tr></table></figure>
 
-<p>  4.2.7<br>  (1)key分区<br>  KEY分区类似HASH分区，区别在于以下几点<br>  1.KEY分区允许多列，而HASH分区只允许一列<br>  2.如果有主键或唯一键的情况下，KEY分区列可不指定，默认为主键或唯键，如果没有主键或唯一键，则必须显性指定列。<br>  3.KEY分区对象必须为列，而不能是基于列的表达式<br>  4.KEY分区和HASH分区的算法不一样。</p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">案例2</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          add: function () &#123;</span><br><span class="line">            this.num++;</span><br><span class="line">          &#125;,</span><br><span class="line">          sub: function () &#123;</span><br><span class="line">            this.num--;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -441,7 +375,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/13/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9517/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Vue%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%8E%8C%E6%8F%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -460,7 +394,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/13/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9517/" itemprop="url">MySQL网课记录17</a></h1>
+                <a class="post-title-link" href="/2021/03/13/Vue%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%8E%8C%E6%8F%A1/" itemprop="url">Vue表格的掌握</a></h1>
         
 
         <div class="post-meta">
@@ -472,8 +406,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-13T22:31:38+08:00">
-                2020-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:39:35+08:00">
+                2021-03-13
               </time>
             
 
@@ -482,28 +416,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -534,66 +446,154 @@
       
         
           
-            <h1 id="4-1-数据库索引"><a href="#4-1-数据库索引" class="headerlink" title="4.1 数据库索引"></a>4.1 数据库索引</h1><p>1.索引及作用<br>1.1索引<br>   索引是根据表巾一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以自接根据该列上的索引找到对应行的位置，从而快速地找到数据。<br>   例如<br>   如果用户创建了学生表中学号列的索引， MySQL将在索引中排序学号列，对于索引中的每一项， MySQL在内部为它保行一个数据文件中实际记录所在位智的“指针”。因此，如果要查找学号为“2019001”的学生信息， MySQL能在学号列的索引中找到“2019001”的值，然后直接转到数据文件中相应的行，准确地返回该行的数据。</p>
-<p>1.2索引作用<br>   在数据库系统中建立索引主要有以下作用</p>
-<ul>
-<li>快速读取数据</li>
-<li>保证数据记录的唯一性</li>
-<li>实现表与表之间的参照完整性</li>
-<li>在使用 GROUP BY、 ORDER BY子句进行数据检索吋，利用索引可减少排序和分组的时间。</li>
+            <h1 id="Vue表格的掌握"><a href="#Vue表格的掌握" class="headerlink" title="Vue表格的掌握"></a>Vue表格的掌握</h1><ol>
+<li><p>Vue的表格：movies(写在data下面)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          message: &#39;案例&#39;,</span><br><span class="line">          movies: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;],</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;写法1</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>   ​     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">使用v-for遍历movies中的数据</span><br><span class="line"> &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li v-for&#x3D;&quot;item in movies&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">      &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          message: &#39;案例&#39;,</span><br><span class="line">          movies: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;],</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/" itemprop="url">hello Vue 的编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:35:20+08:00">
+                2021-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Hello-Vue-的编程"><a href="#Hello-Vue-的编程" class="headerlink" title="Hello Vue 的编程"></a>Hello Vue 的编程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      &#x2F;&#x2F;let(变量) const(常量)</span><br><span class="line">      const app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;, &#x2F;&#x2F;用于挂载元素的管理</span><br><span class="line">        data: &#123;</span><br><span class="line">          &#x2F;&#x2F;定义数据</span><br><span class="line">          message: &#39;hello world!&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码做了什么"><a href="#代码做了什么" class="headerlink" title="代码做了什么"></a>代码做了什么</h2><ul>
+<li>创建vue对象的时候，传入了一些 options：<ul>
+<li>{}中包含了el属性：该属性决定了这个ue对象挂载到哪个元素上，很明显，我们这里是挂载到了id为app的元素上</li>
+<li>{}中包含了data属性：该属性中通常会存储一些数据<ul>
+<li>这些数据可以是我们直接定义出来的，比如像上面这样。</li>
+<li>也可能是来自网络，从服务器加载的。</li>
 </ul>
-<p>1.3MySQL索引<br>   在 MySQL5.6中，所有的 MySQL列类型都能被索引，但要注意以下几点只有当表类型为 MyISAM、 InnoDB或BDB时，才可以向有NULL、BLOB或TEXT列中添加索引。<br>   一个表最多可有16个索引。最大索引长度足256个字节。<br>   对于CHAR和VARCHAR列，可以索引列的前缀。这样索引的速度吏快并且比索引整个列需要较少的磁盘空间。<br>   MySQL能在多个列上创建索引。索引可以由最多15个列组成（在CHAR和VARCHAR列上，也可以使用列的前缀作为索引的部分）。</p>
-<p>2.索引的分类<br>2.1 BTREE索引目前大部分 MySQL索引都是以B-树（ BTREE）方式存储的，索引类型分成下列几个。</p>
-<ul>
-<li>（1）普通索引（ INDEX） 这是最基本的索引类型，它没有唯一性之类的限制。创建普通索引的关键字是INDEX。</li>
-<li>（2）唯一性索引（ UNIQUE) 这种索引和前面的普通索引基本相同，但有一个区别：索引列的所有值都只能出现一次，即必须是唯一的。创建唯一性索引的关键字是 UNIQUE</li>
-<li>（3）主键（ PRIMARY KEY）主键是种唯性索引，它必须指定为“ PRIMARY KEY”。主键般在创建表的时候指定，也可以通过修改表的方式加入主键。但是每个表只能有一个主键</li>
-<li>（4）全文索引（ FULLTEXT）MySQL支持全文检索和全文索引。在 My SQL中，个文索引的索引类型为FULLTEXT。</li>
+</li>
 </ul>
-<p>2.2 MySQL索引创建<br>    (1)CREATE|NDEX语句创建使用 CREATE|NDEX语句可以在一个已有表上创建索引，一个表可以创建多个索引。</p>
-<pre><code>语法格式
-CREATE[UNIQUE| FULLTEXT| SPATIAL]NDEX索引名
-[索引类型]
-ON表名（索引列名…）
-[索引类型]
-索引列名=：
-列名[(长度)][ASC|DESC]
-
-说明
-UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT表示创建全文索引； SPATIAL表示为空间索引，可以用来索引几何数据类型的列（本书不讨论这种索引）。
-索引名：索引在一个表中名称必须是唯一的
-索引类型：MySQL支持的索引类型有 BTREE和HASH。
-索引列名：创建索引的列名后的长度表示该列前面创建索引字符个数。这可使索引文件大大减小，从而节省磁盘空间</code></pre><p>2.3例<br>(1) 根据课程表的课程号创建一个索引cno_in</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create index cno_in &#x2F;&#x2F;创建一个叫cno_in的普通索引</span><br><span class="line">on tb_course(cno);</span><br></pre></td></tr></table></figure>
-
-<p>(2)根据学生表的学号列上的前5个字符建立一个升序索引sno_in</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create index sno_in</span><br><span class="line">on tb_student(sno(5) asc); &#x2F;&#x2F;也可以在一个索引的定义中包含多个列，中问用逗号隔开，但它们属于同一个表，这样的索引叫作复合索引。</span><br></pre></td></tr></table></figure>
-
-<p>(3)在tb_mark表的学号列和课程号列上创建一个复合索引sc_in</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create idnex sc_in</span><br><span class="line">on tb_mark(sno,cno)</span><br></pre></td></tr></table></figure>
-
-<p>3.ALTER TABLE语句创建<br>  语法格式如下：<br>  ALTER [IGNORE]TABLE 表名<br>  …..<br>  |ADD{INDEX|KEY}[索引名]<br>    /<em>添加索引</em>/<br>              [索引类型](索引列名…）[索引选项]…<br>  |ADD[CONSTRAINT[symbol]]PRIMARY KEY               /<em>添加主键</em>/<br>              [索引类型](索引列名…）[索引选项]…<br>  |ADD FULLTEXT[INDEX|KEY] [索引类型](索引列名…）[索引选项]…<br>                                               /<em>添加全文索引</em>/<br>  |ADD SPATIAL [INDEX|KEY][索引类型](索引列名…）[索引选项]…<br>                                              /<em>添加空间索引</em>/<br>  |ADD [CONSTARINT[symobl]]FOREIGN KEY[索引类型](索引列名…）[索引选项]…<br>                                             /<em>添加外键</em>/</p>
-<p>3.1例<br>（1）在学生表的姓名列上创建一个非唯一的索引。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table tb_student</span><br><span class="line">add index sname_in using btree(sname);</span><br></pre></td></tr></table></figure>
-
-<p>(2)根据年龄和性别对学生表进行检索，我们可以创建复合索引：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table tb_studnet</span><br><span class="line">add index sagesex_in(sage,ssex);</span><br></pre></td></tr></table></figure>
-
-<p>3.2 查看表中创建的索引情况<br>    show idnex from 表名</p>
-<p>4.在创建表时创建索引<br>  在前两种情况下，索引都是在表建立之后创建的。索引也可以在创建表时起创建。在创建表的 CREATE TABLE语句中可以包含索引的定义。<br>  语法格式<br>  create [TEMPORARY] TABLE [IF NOT EXISTS] 表名<br>  [([列定义],…|[索引定义])]<br>  [表选项][select语句];<br>  索引定义二：<br>  [CONSTRAINT [symbol]]PRIMARY KEY [索引类型](索引列名…） /<em>主键</em>/<br>  |{INDEX|KEY}[索引名][索引类型](索引列名…）              /<em>索引</em>/<br>  |[CONSTRAINT[symonl]] UNIQUE [INDEX|KEY][索引名][索引类型](索引列名…）  /<em>唯一性索引</em>/<br>  |[FULLTEXT|SPATIAL][INDEX|KEY][索引名](索引列名…）     /<em>全文索引</em>/<br>  |[CONSTRAINT[symbol]] FOREIGN KEY <a href="索引列名...">索引名</a>[参照系定义]       /<em>外键</em>/</p>
-<p>5.删除索引<br>  当个索引不再需要的吋候，可以用DROP INDEX语句或 ALTER TABLE语句删除它。<br>  (1) 使用DROP INDEX删除<br>  语法格式：<br>  DROP IDNEX 索引名 ON 表名</p>
-<p>  (2)使用 ALTER TABLE删除语法格式：<br>  语法格式：<br>  ALTER [IGNORE] TABLE 表名<br>  …..<br>  | DROP PRIMARY KEY              /<em>删除主键</em>/<br>  | DROP {INDEX|KEY}索引名        /<em>删除所有</em>/<br>  | DROP FOREIGN KEY fk_symbol   /<em>删除外键</em>/</p>
-<p>5.1 例<br>(1)删除sc表上的grade索引。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table sc</span><br><span class="line">drop index grade_in;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
+</li>
+</ul>
+<ul>
+<li>游览器执行代码的流程<ul>
+<li>执行到第二个<script>前还是显示原来的代码</li>
+<li>执行到第二个<script>后开始创建Vue实例，并且对html进行解析和修改</li>
+</ul>
+</li>
+</ul>
 
           
         
@@ -642,7 +642,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/08/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9516/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -661,7 +661,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/08/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9516/" itemprop="url">MySQL网课记录16</a></h1>
+                <a class="post-title-link" href="/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/" itemprop="url">黑马html课程笔记5</a></h1>
         
 
         <div class="post-meta">
@@ -673,8 +673,8 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T13:55:37+08:00">
-                2020-05-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-03T13:05:24+08:00">
+                2021-02-03
               </time>
             
 
@@ -683,28 +683,6 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -735,218 +713,33 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
       
         
           
-            <h1 id="3-6-9-连接查询"><a href="#3-6-9-连接查询" class="headerlink" title="3.6.9 连接查询"></a>3.6.9 连接查询</h1><p>1.连接查询<br>  在 SELECT语句中，如果FROM子句引用了多个表源或视图，则可以使用JOIN关键字指示指定的连接操作在指定的表源和视图之间执行。<br>  语法格式：<br>  join_table:<br>    table_reference[INNER|CROSS]JOIN table_factor [join_condition]<br>    | table_reference{LEFT|RIGHT}[OUTER]JOIN table_reference join_condition<br>  其中，join_condotion:<br>   ON条件<br>  |USING （column_list)</p>
-<p>1.1例</p>
-<p>(1)查找选修了c001课程且成绩在80分以上的学生姓名及成绩。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select sname,grade</span><br><span class="line">from tb_student s join tb_mark m &#x2F;&#x2F;要给两个表起别名</span><br><span class="line">on s.sno&#x3D;m.sno  &#x2F;&#x2F; 要两个表中有相同的字段名</span><br><span class="line">where cno&#x3D;&#39;c001&#39; and grde&gt;&#x3D;80;</span><br></pre></td></tr></table></figure>
-
-<p>(2)查询出每个班级每门课程的平均分，显示出班级名称、课程名称及平均分，按平均分查询。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select classname,cname,avg(grade) 平均分,count(grade) 考试人数</span><br><span class="line">from tb_student s join tb_course c join tb_mark m</span><br><span class="line">on s.sno&#x3D;m.sno and c.cno&#x3D;m.cno &#x2F;&#x2F;表之间相同的字段名</span><br><span class="line">grour by classname,cname  </span><br><span class="line">order by avg(grade);</span><br></pre></td></tr></table></figure>
-
-<p>2.外连接<br>  制定了OURTER关键字的连接为外连接。<br>  外连接包括：<br>  左外连接（ LEFT OUTER JOIN）：结果表中除了匹配行外，还包括左表有的但右表中不匹配的行，对于这样的行，从右表被选择的字段设置为NULL。<br>  右外连接（RIGHT OUTER JOIN）：结果表中除了匹配行外，还包括右表有的但左表中不匹配的行，对于这样的行，从左表被选择的字段设置为NULL。</p>
-<p>2.1例<br>(1)查找所有学生情况及他们选课情况，若学生未选修任何课，也要包括其情况。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">se;ecr s.*,cno,grade</span><br><span class="line">from tb_student s left outer join tb_mark m</span><br><span class="line">on s.sno&#x3D;m.sno;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9515/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9515/" itemprop="url">MySQL网课记录15</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T16:10:09+08:00">
-                2020-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3-6-8分组查询（聚合函数）"><a href="#3-6-8分组查询（聚合函数）" class="headerlink" title="3.6.8分组查询（聚合函数）"></a>3.6.8分组查询（聚合函数）</h1><p>1.聚合函数<br> 聚合函数常常用于对一组值进行计算，然后返回单个值。除 COUNT函数外，聚合函数都会忽略空值。聚合函数通常与GROUP BY子句一起使用。如果包含聚合函数的 SELECT语句中有 GROUP BY子句，则会返回多行记录，如果没有，则 SELECT语句只产生一行记录作为结果。</p>
-<p>1.1常用聚合函数表</p>
+            <h1 id="P21-22-相对路径"><a href="#P21-22-相对路径" class="headerlink" title="P21.22 相对路径"></a>P21.22 相对路径</h1><ol>
+<li>相对路径：<br>以引用文件所在位置为参考基础，而建立出的目录路径。（简单来说就是图片相当于HTML页面的位置）   </li>
+</ol>
 <table>
 <thead>
 <tr>
-<th>函数名</th>
+<th>相对路径分类</th>
+<th>符号</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>COUNT</td>
-<td>求组中项数，返回int类型整数</td>
+<td>同一级路径</td>
+<td></td>
+<td>图像文件位于HTML文件同一级如《img src=”baidu.gif”/》</td>
 </tr>
 <tr>
-<td>MAX</td>
-<td>求最大值</td>
+<td>下一级路径</td>
+<td>/</td>
+<td>图像文件位于HTML文件下一级如《img src=”images/baidu.gif”/》</td>
 </tr>
 <tr>
-<td>MIN</td>
-<td>求最小值</td>
-</tr>
-<tr>
-<td>SUM</td>
-<td>返回表达式中所有值的和</td>
-</tr>
-<tr>
-<td>AVG</td>
-<td>求组中值的平均值</td>
+<td>上一级路径</td>
+<td>../</td>
+<td>图像文件位于HTML文件上一级如《img src=”../images/baidu.gif”/》</td>
 </tr>
 </tbody></table>
-<p>1.2 COUNT函数<br>    聚合函数中最经常使用的是 COUNT函数，用于统计组中满是条件的行数或总行数，返回 SELECT语句检索到的行中非NULL值的数目，若找不到匹配的行，则返回0。<br>    语法格式：<br>    COUNT（{[ALL|DISTINCT]表达式}|*)</p>
-<p>1.2.1 示例<br>(1) 求学生的总人数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) 学生总数 from tb_student;</span><br></pre></td></tr></table></figure>
-
-<p>(2)求男生的人数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) 男生总数 from tb_student where ssex&#x3D;&#39;男&#39;; &#x2F;&#x2F; 性别为null的学生会显示在男女两边</span><br></pre></td></tr></table></figure>
-
-<p>(3)求填了性别的学生的总人数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(ssex) 填了性别的学生的总人数 from tb_student；</span><br></pre></td></tr></table></figure>
-
-<p>(4)求有学生的班级总数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(distinct classname) 有学生的班级总数 from tb_student; &#x2F;&#x2F; distinct 不重复</span><br></pre></td></tr></table></figure>
-
-<p>1.3 MAX和MIN<br>    MAX和MIN分别用于求表达式中所有值项的最大值与最小值，语法格式为：<br>    MAX/MIN（[ALL|DISTINCT]表达式）<br>    其中，表达式可以是常量、字段、函数或表达式，其数据类型可以是数字字符和时间日期类型。</p>
-<p>1.3.1 示例<br>(1)求c001课程的最高分和最低分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select max（grade) 最高分，min(grade) 最低分 from tb_mark where cno&#x3D;&#39;c001&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>1.4 SUM函数和AVG函数<br>    SUM和AVG分别用于求表达式中所有值项的总和与平均值，语法格式为：<br>    SUM/AVG([ALL| DISTINCT]表达式)<br>    其中，表达式可以是常量、字段、函数或表达式，其数据类型只能是数值型数据。</p>
-<p>1.4.1 示例<br>(1) 求c001课程的最高分、最低分、选修人数、总分和平均分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select max(grade)最高分,min(grade)最低分,count(*)选修人数,sum(grade)总分,avg(grade)平均分</span><br><span class="line">from tb_mark where cno&#x3D;&#39;c001&#39;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
 
           
         
@@ -995,7 +788,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9514/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -1014,7 +807,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9514/" itemprop="url">MySQL网课记录14</a></h1>
+                <a class="post-title-link" href="/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B04/" itemprop="url">黑马html课程笔记4</a></h1>
         
 
         <div class="post-meta">
@@ -1026,8 +819,8 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T15:04:34+08:00">
-                2020-05-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-03T12:50:03+08:00">
+                2021-02-03
               </time>
             
 
@@ -1036,28 +829,6 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1088,616 +859,14 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
       
         
           
-            <h1 id="3-6-7-限制查询"><a href="#3-6-7-限制查询" class="headerlink" title="3.6.7 限制查询"></a>3.6.7 限制查询</h1><p>1.限制查询<br>  LIMT子句，主要用于限制 SELECT语句返回的行数。<br>  语法格式：<br>  LIMIT{[offest,]row_count}<br>  说明：语法格式中的 offset和row_ count都必须是非负的整数， offset指定返回的第一行的偏移量， row_count是返回的行数。<br>  限制查询的功能：<br>  1.LIMIT限制返回的数量可以有效的减少服务器的压力和传输压力。<br>  2.利用LIMIT来实现分页功能</p>
-<p>2.示例<br>(1)查询出c001课程前三名的成绩</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_mark</span><br><span class="line">where cno&#x3D;&quot;c001&quot;</span><br><span class="line">order by grade desc</span><br><span class="line">limit 3; &#x2F;&#x2F; limit子句放最后</span><br></pre></td></tr></table></figure>
-<p>(2)查询出c001课程第四名到第六名的成绩</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_mark</span><br><span class="line">where cno&#x3D;&quot;c001&quot;</span><br><span class="line">order by grade desc</span><br><span class="line">limit 3,3; &#x2F;&#x2F; 偏移量指定返回的第一行的偏移量，就比如这里的第四、第六就分别是从一，四开始，所以这里是3，3.</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9513/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9513/" itemprop="url">MySQL网课记录13</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T12:50:44+08:00">
-                2020-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3-6-6-排序查询"><a href="#3-6-6-排序查询" class="headerlink" title="3.6.6 排序查询"></a>3.6.6 排序查询</h1><p>1.排序查询<br>  在一条 SELECT语句中，如果不使用ORDER BY子句，结果中行的顺序是不可预料的。使用 ORDER BY子句后可以保证结果中的行按一定顺序排列。<br>  语法格式<br>  ORDER BY{字段名|表达式|position}[ASC|DESC],…<br>  关键字ASC表示升序排列，DESC表示降序排列，系统默认值为ASC</p>
-<p>2.示例<br>(1)查询tb_student表中的sno,sname,sage,classname,按姓名大小排列。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select sno,sname,sage,classname from tb_student</span><br><span class="line">order by sname;  &#x2F;&#x2F;这里是按照字母表排序的</span><br></pre></td></tr></table></figure>
-
-<p>(2)将19软件4班的学生信息按入学日期先后排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_student</span><br><span class="line">where classname&#x3D;&quot;19软件4班&quot; &#x2F;&#x2F; where 要写在order by前面</span><br><span class="line">order by edate;</span><br></pre></td></tr></table></figure>
-
-<p>(3)将tb_mark表中的记录按cno正序及成绩倒序(即同一门课程成绩按照倒序排）排序。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_mark</span><br><span class="line">order by cno asc,grade desc; &#x2F;&#x2F;ASC表示升序排列，DESC表示降序排列</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9512/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9512/" itemprop="url">MySQL网课记录12</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T12:03:34+08:00">
-                2020-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3-6-5-模糊查询"><a href="#3-6-5-模糊查询" class="headerlink" title="3.6.5 模糊查询"></a>3.6.5 模糊查询</h1><p>1.模糊查询<br>  LIKE运算符用于指出一个字符串是否与指定的字符串相匹配，其运算对象可以是char、 varchar、text、 datetime等类型的数据，返回逻辑值TRUE或FALSE。LIKE谓词表达式的格式为：<br>  表达式[NOT]LIKE匹配表达式[ESCAPE’escape_character’]<br>  使用LIKE进行模式匹配时，常使用特殊符号_和%，可进行模糊查询。<br>  “%”代表0个或多个字符，“_”代表单个字符。</p>
-<p>2.示例<br>(1)查询tb_student表中，姓王的学生信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_student</span><br><span class="line">where sname like &quot;王%&quot;;</span><br></pre></td></tr></table></figure>
-
-<p>(2)查询tb_student表中，姓名包含王的学生信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_student</span><br><span class="line">where sname like &quot;%王%&quot;; &#x2F;&#x2F; %代表0或多个字符</span><br></pre></td></tr></table></figure>
-
-<p>(3）查询tb_student表中，姓王且只有一个字的学生信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_student</span><br><span class="line">where sname like &quot;王_&quot;; &#x2F;&#x2F; _代表单个字符</span><br></pre></td></tr></table></figure>
-
-<p>(4)查询tb_student表中，姓王且名字里只有两个字的学生信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_student</span><br><span class="line">where sname like &quot;王__&quot;; &#x2F;&#x2F; 如上</span><br></pre></td></tr></table></figure>
-
-<p>(5)查询tb_student表中,sno倒数第二个数字为1的学生sno、sname、及classname。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select sno,sname,classnmae from tb_student</span><br><span class="line">where sno like &quot;%1_&quot;; &#x2F;&#x2F; 后面的_占了最后一位数</span><br></pre></td></tr></table></figure>
-
-<p>(6)查询tb_course表中，cname包含”_”的课程信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_student</span><br><span class="line">where cname like &quot;%#_%&quot; escape&quot;#&quot;; &#x2F;&#x2F; 这里要把&quot;_&quot;转换成普通符号</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/04/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9511/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/04/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9511/" itemprop="url">mysql网课记录11</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-04T22:41:21+08:00">
-                2020-05-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3-6-4不重复查询"><a href="#3-6-4不重复查询" class="headerlink" title="3.6.4不重复查询"></a>3.6.4不重复查询</h1><p>1.不重复查询<br>  对表只选择其某些字段时，可能会出现重复行。例如，若对 stumarkdb数据库的 tb_student表只选择班级，会出现多行重复的情况。可以使用DISTINCT关键字消除结果集中的重复行，格式是：<br>  SELECT DISTINCT 字段名 …</p>
-<p>1.1知识点<br>   (1)ALL：默认，保留全部记录<br>   (2)DISTINCT:去除重复记录</p>
-<p>示例<br>在tb_student表中查询出那些班级有学生</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select distinct classname from tb_student &#x2F;&#x2F; 知识点</span><br><span class="line">where classname is not null; &#x2F;&#x2F;条件 班级名字不是null</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/04/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9510/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/04/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9510/" itemprop="url">mysql网课记录10</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-04T22:00:42+08:00">
-                2020-05-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3-6-3-联合查询"><a href="#3-6-3-联合查询" class="headerlink" title="3.6.3 联合查询"></a>3.6.3 联合查询</h1><p>1.联合查询<br>  使用UNON关键字，把来自许多 SELECT语句的结果集合到一个结果集合中。<br>  语法格式如下：<br>  SELECT UNION…<br>  UNION [ALL|DISTINCT] SELECT …<br>  [UNION[ALL|DISTINCT] SELECT …]<br>  UNION(UNION DISTINCT)和 UNION ALLI的主要区别：UNION ALL用于将结果集直接合并在一起，而UNON（ UNION DISTINCT）用于将UNION ALL后的结果进行一次不重复处理，以删除重复结果记录。</p>
-<p>(1)知识点</p>
-<ol>
-<li>联合查询就是把多个查询结果进行组合显示</li>
-<li>多个查询结果集返回的字段数量必须一样。</li>
-<li>联合查询结果集的字段名来源于第一查询语句的字段名</li>
-<li>ALL：保留所有记录<br>DISTINCT:去除重复记录</li>
+            <h1 id="P19-图像标签上"><a href="#P19-图像标签上" class="headerlink" title="P19 图像标签上"></a>P19 图像标签上</h1><ol>
+<li>img标签中 alt 和 title 的使用方法</li>
 </ol>
-<p>1.1示例<br>(1)查询出学生表和离校学生表中所有学生的sname，ssex，tel，edate，分别给出别名姓名，性别，电话号码，入学日期。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select sname 姓名，ssex 性别，tel 电话号码，edate 入学日期 from tb_student &#x2F;&#x2F;知识点里的内容</span><br><span class="line">union all</span><br><span class="line">select sname,ssex,tel.edate from tb_lxstudent;</span><br></pre></td></tr></table></figure>
-
-<p>(2)查询出学生表和离校学生表中所有女生的信息；//联合查询中的条件 要加在所有查询语句后面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from tb_student</span><br><span class="line">where ssex&#x3D;&quot;女&quot; </span><br><span class="line">union &#x2F;&#x2F;不用保留所有信息 所以用union </span><br><span class="line">select * from tb_lxstudent</span><br><span class="line">where ssex&#x3D;&quot;女&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>alt:替换文本，当图片显示不出来的时候，显示alt的文字</li>
+<li>title:提示文本，当鼠标放到图片上,提示的文字</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">示例</span><br><span class="line">&lt;img src&#x3D;&quot;img.jpg&quot; alt&#x3D;&quot;一张普通的图片&quot; title&#x3D;&quot;一张普通的图片&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1745,7 +914,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/04/28/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%959/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/30/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -1764,7 +933,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/28/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%959/" itemprop="url">mysql网课记录9</a></h1>
+                <a class="post-title-link" href="/2021/01/30/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B03/" itemprop="url">黑马html课程笔记3</a></h1>
         
 
         <div class="post-meta">
@@ -1776,8 +945,8 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-28T08:59:49+08:00">
-                2020-04-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-30T13:51:30+08:00">
+                2021-01-30
               </time>
             
 
@@ -1786,28 +955,6 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1838,51 +985,609 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
       
         
           
-            <h1 id="3-6-2-条件查询"><a href="#3-6-2-条件查询" class="headerlink" title="3.6.2 条件查询"></a>3.6.2 条件查询</h1><p>1.条件查询<br>  在大多数情况下，用户并不需要查询表内所有记录，而是需要根据特定条件来查询部分数据，此时，可以用 WHERE子句实现条件查询。条件查询的语法格式如下：<br>  select 字段名 from 表名 where 条件；<br>  条件=：[not]&lt;判断运算&gt;|&lt;判断运算&gt;{AND|OR}&lt;判断运算&gt;</p>
-<p>2.比较运算<br>  条件的判断常常使用比较运算符，常用比较运算符如下表。</p>
+            <h1 id="P12-DOCTYPE和lang以及字符集的作用"><a href="#P12-DOCTYPE和lang以及字符集的作用" class="headerlink" title="P12 DOCTYPE和lang以及字符集的作用"></a>P12 DOCTYPE和lang以及字符集的作用</h1><ol>
+<li><!DOCTYPE>
+文档类型声明，作用就是告诉游览器使用哪种HTML版本来显示网页。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">这句代码的意思是:当前页面采取的是HTML5版本来显示网页。</span><br><span class="line">注意：</span><br><span class="line">1.&lt;!DOCTYPE html&gt;声明位于文档中的最前面位置，处于&lt;html&gt;标签之前。</span><br><span class="line">2.&lt;!DOCTYPE html&gt;不是html标签，它就是文档声明标签。</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>lang语言种类<br>用来定义当前文档显示的语言。</li>
+</ol>
+<ul>
+<li>en定义语言为英语</li>
+<li>zh-CN定义语言为中文</li>
+<li>给游览器识别翻译用的</li>
+<li>告诉游览器或者搜索引擎这是一个英文网站，本页面采取英文来显示。</li>
+</ul>
+<ol start="3">
+<li>字符集<br>字符集(Character set)是多个字符的集合，以便计算机能够识别和存储各种文字</li>
+</ol>
+<ul>
+<li>在<head>标签内，可以通过<meta>标签的charset属性    来规定HTML文档应该使用哪种字符码编程。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0-1/" itemprop="url">黑马html课程笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-29T12:24:27+08:00">
+                2021-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="P6-WEB标准"><a href="#P6-WEB标准" class="headerlink" title="P6 WEB标准"></a>P6 WEB标准</h1><ol>
+<li><p>web标准是什么<br>(1) web标准是w3c组织和其他标准化组织制定的一系列标准的集合。w3c(万维网联盟）是国际最著名的标准化组织。</p>
+</li>
+<li><p>为什么需要web标准<br>遵循web标准除了可以让不同的开发人员写出的页面更标准，更统一以外，还有以下优点：</p>
+</li>
+</ol>
+<ul>
+<li>让web的发展前景更广阔。</li>
+<li>内容能被更广泛的设备访问</li>
+<li>更容易被搜索引擎搜索</li>
+<li>降低网站流量费用</li>
+<li>使网站更易于维护。</li>
+<li>提高页面游览速度。</li>
+</ul>
+<ol start="3">
+<li>web标准的构成<br>主要包括结构(Structure),表现(Presentation)和行为(Behavior)三个方面。</li>
+</ol>
 <table>
 <thead>
 <tr>
-<th>比较运算符</th>
+<th>标准</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>=</td>
-<td>等于，检测两个值是否相等，如果相等则返回true</td>
+<td>结构</td>
+<td>结构用于对<strong>网页元素</strong>进行分类和整理，现阶段主要学习HTMl.</td>
 </tr>
 <tr>
-<td>&lt;&gt;,!=</td>
-<td>不等于，检测两个值是否不相等，如果相等则返回 false</td>
+<td>表现</td>
+<td>表现用于设置网页元素的板式、颜色、大小等<strong>外观样式</strong>，主要指的是css.</td>
 </tr>
 <tr>
-<td>&gt;</td>
-<td>大于，检测左边的值是否大于右边的值，如果大于则返回true</td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>小于，检测左边的值是否小于右边的值，如果大于则返回 false</td>
-</tr>
-<tr>
-<td>&gt;=</td>
-<td>大于或等于，检测左边的值是否大于或等于右边的值，如果大于等于则返回true</td>
-</tr>
-<tr>
-<td>&lt;=</td>
-<td>小于或等于，检测左边的值是否小于或等于右边的值，如果大于等于则返回 false</td>
+<td>行为</td>
+<td>行为是指网页模型的定义以及<strong>交互</strong>的编写，现阶段只要学习JavaScript</td>
 </tr>
 </tbody></table>
-<p>  示例1<br>  <a href="https://sbimg.cn/image/XxZqN" target="_blank" rel="noopener"><img src="https://wx1.sbimg.cn/2020/04/28/Snipaste_2020-04.png" alt="Snipaste_2020-04.png"></a></p>
-<p>  示例2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询tb_student表中19软件1班和19软件6班学生的数据。</span><br><span class="line">select * from tb_student where classname&#x3D;&quot;19软件1班&quot; or classname&#x3D;&quot;19软件6班&quot;;(可以同时满足就用and连接 不可以就用or)</span><br></pre></td></tr></table></figure>
+<p>web标准提出的最佳体验方案：结构，样式，行为相分离。<br>简单理解：结构写到html文件中，表现写到css文件中，行为写到JavaScript文件中。</p>
 
-<p>  示例3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询tb_student表中除去19软件1班和19软件6班学生的数据。</span><br><span class="line">select * from tb_student where  not classname&#x3D;&quot;19软件1班&quot; or classname&#x3D;&quot;19软件6班&quot;;（not 用来反转）</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
 
-<p>3.范围比较<br>  用于范围比较的关键字有两个：BETWEEN和IN。<br>  当要查询的条件是某个值的范围时，可以使用 BETWEEN关键字。<br>  BETWEEN关键字指出查询范围，格式为：<br>  表达式[NOT] BETWEEN 值1 AND 值2<br>  当不使用NOT时，若表达式的值在值1与2之间（包括这两个值），则返回TRUE，否则返回 FALSE；使用NOT时，返回值刚好相反。<br>  使用IN关键字可以指定一个值表，值表中列出所有可能的值，当与值表中的任一个匹配时，即返回TRUE，否则返回 FALSE。使用N关键字指定值表的格式为：<br>  表达式IN（值1，值2，值3，…，值n）</p>
-<p>  示例1<br>  <a href="https://sbimg.cn/image/XxSNT" target="_blank" rel="noopener"><img src="https://wx1.sbimg.cn/2020/04/28/Snipaste_2020-041.png" alt="Snipaste_2020-041.png"></a></p>
-<p>4.空值查询<br>  当需要判定一个表达式的值是否为空值时，使用 IS NULL关键字，格式为：<br>  表达式IS [NOT] NULL<br>  当不使用NOT时，若表达式的值为空值，返回TRUE，否则返回FALSE；当使用N○T时，结果刚好相反。</p>
-<p>  示例1<br>  <a href="https://sbimg.cn/image/XxFUl" target="_blank" rel="noopener"><img src="https://wx2.sbimg.cn/2020/04/28/Snipaste_2020-042.png" alt="Snipaste_2020-042.png"></a></p>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" itemprop="url">黑马html课程笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-29T11:26:35+08:00">
+                2021-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="P4-网页的相关概念"><a href="#P4-网页的相关概念" class="headerlink" title="P4 网页的相关概念"></a>P4 网页的相关概念</h1><p>一.网页</p>
+<ol>
+<li><p>什么是网页<br>(1)网站是指在因特网上根据一定的规则，使用HTML等制作的用于展示特定内容相关的网页集合，<br>(2)网页是网站中的一”页”，通常是HTML格式的文件，它要通过游览器来阅读。<br>(3)网页是构成网站的基本元素，它通常由图片，链接，文字，声音，视频等元素组成，通常我们看到的网页，常见以.html或.html后缀结尾的文件，因此将其俗称为HTML文件。</p>
+</li>
+<li><p>什么是HTML<br>(1)html指的是超文本标记语言（Hyper Text Markup Language)，它是用来描述网页的一种语言。<br>(2)html不是一种编程语言，而是一种标记语言（Markup Language）.<br>(3)标记语言是一套标记标签(markup tag)。</p>
+</li>
+<li><p>超文本，有两层含义：<br>(1)它可以加入图片，声音，动画，多媒体等内容（超越了文本限制）。<br>(2)它还可以从一个文件跳转到另一个文件，与世界各地主机的文件连接（超级链接文本）。</p>
+</li>
+<li><p>网页的生成<br>(1)网页是由网页元素组成的，这些元素是利用html标签描述出来，然后通过游览器解析来显示给用户看的。<br>前端人员开发代码 —&gt; 游览器显示代码(解析，渲染) —&gt; 生成最后的web页面 </p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/09/java%E5%A4%8D%E4%B9%A0%E9%A2%982/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/09/java%E5%A4%8D%E4%B9%A0%E9%A2%982/" itemprop="url">java复习题2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-09T19:46:03+08:00">
+                2021-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="《Java高级程序设计》编程复习题二"><a href="#《Java高级程序设计》编程复习题二" class="headerlink" title="《Java高级程序设计》编程复习题二"></a>《Java高级程序设计》编程复习题二</h1><p>1.1、    Java编写程序创建一HashSet集合，并在HashSet集合中添加3个Person对象（属性有id和name），把姓名相同的人当做同一个人，禁止重复添加。然后用数据[01 Tom；xx 张三；02 Tom]测试程序。<br>（提示：要重写hashCode() 和equals() 方法。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import java.util.HashSet;</span><br><span class="line"></span><br><span class="line">public class Person &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  private int age;</span><br><span class="line"></span><br><span class="line">  public Person(String name, int age) &#123;</span><br><span class="line">  super();</span><br><span class="line">  this.name &#x3D; name;</span><br><span class="line">  this.age &#x3D; age;       &#x2F;&#x2F;定义name和age属性</span><br><span class="line"> &#125;&#x2F;&#x2F;K.kuimeng</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public String toString() &#123;</span><br><span class="line">  return &quot;姓名：&quot; + name + &quot;      年龄：&quot; + age ;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public int hashCode() &#123;</span><br><span class="line">  &#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">  return name.hashCode();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public boolean equals(Object o) &#123;</span><br><span class="line">  &#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">  Person c&#x3D;(Person)o;&#x2F;&#x2F;K.kuimeng</span><br><span class="line">  return c.name.equals(this.name);   &#x2F;&#x2F;根据姓名判断是否相等</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  HashSet&lt;Person&gt; hashSet&#x3D;new HashSet&lt;Person&gt;() ;</span><br><span class="line">  Person person1&#x3D;new Person(&quot;王猛&quot;,17);</span><br><span class="line">  Person person2&#x3D;new Person(&quot;张立&quot;,20);</span><br><span class="line">  Person person3&#x3D;new Person(&quot;王猛&quot;,22);   &#x2F;&#x2F;创建三个对象</span><br><span class="line">  hashSet.add(person1);</span><br><span class="line">  hashSet.add(person2);</span><br><span class="line">  hashSet.add(person3);</span><br><span class="line"></span><br><span class="line">  for (Person persons:hashSet) &#123;</span><br><span class="line">    System.out.println(persons);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>  2.编写一程序，考生利用I/O流（字节流和字符流）或者NIO技术，拷贝项目目录下的一个文件src.txt到dest.txt；再利用字符流技术把dest.txt文件读出来显示在控制台上。（提示：在Java项目的目录下创建源文件src.txt，并输入信息后保存，然后把它拷贝到目标文件和读出。）<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  package day_8;</span><br><span class="line"> import java.io.*;</span><br><span class="line">public class readTest &#123;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) throws Exception&#123;</span><br><span class="line">  &#x2F;&#x2F;创建文件输入流对象读取指定目录下的文件</span><br><span class="line">  FileInputStream in&#x3D;new FileInputStream(&quot;src.txt&quot;);</span><br><span class="line">  &#x2F;&#x2F;创建文件输出流对象将读取到的文件内容写到指定目录的文件中</span><br><span class="line">  FileOutputStream out&#x3D;new FileOutputStream(&quot;dest.txt&quot;);</span><br><span class="line">  &#x2F;&#x2F;定义一个int类型的变量len</span><br><span class="line">  int len1&#x3D;0;</span><br><span class="line">  long beginTime&#x3D;System.currentTimeMillis();&#x2F;&#x2F;获取拷贝文件前的系统时间</span><br><span class="line">  &#x2F;&#x2F;通过循环将读取到的文件字节信息写到新文件,条件为读取src文件中字节不为-1,-1代表结束</span><br><span class="line">  while((len1&#x3D;in.read())!&#x3D;-1) &#123;</span><br><span class="line">   out.write(len1);&#x2F;&#x2F;将len写入out中</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F;获取拷贝文件后的系统时间</span><br><span class="line">  long endTime&#x3D;System.currentTimeMillis();</span><br><span class="line">  System.out.println(&quot;花费时间为：&quot;+(endTime-beginTime+&quot;毫秒&quot;));</span><br><span class="line">  in.close();</span><br><span class="line">  out.close();</span><br><span class="line">  &#x2F;&#x2F;创建FileReader对象，并指定需要读取的文件</span><br><span class="line">  FileReader fr&#x3D;new FileReader(&quot;dest.txt&quot;);</span><br><span class="line">  int len2&#x3D;0;</span><br><span class="line">  while((len2&#x3D;fr.read())!&#x3D;-1) &#123;&#x2F;&#x2F;读到-1代表到了末尾</span><br><span class="line">   System.out.print((char)len2);&#x2F;&#x2F;将输出的int类型强制转换为char类型</span><br><span class="line">  &#125;</span><br><span class="line">  fr.close();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>3.编写一个JFrame窗口，在窗口最上方放置一个Jlabel标签，标签中默认文本是“此处显示鼠标右键单击坐标”；为Jframe窗口添加一个鼠标事件，当鼠标右键单击窗口时，鼠标的坐标会在Jlabel中显示出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.*;</span><br><span class="line"> </span><br><span class="line">import javax.swing.*;</span><br><span class="line"> </span><br><span class="line">public class MyMouseHandler extends JFrame &#123;</span><br><span class="line">    public MyMouseHandler() &#123;</span><br><span class="line">        final JLabel label &#x3D; new JLabel(&quot;此处显示鼠标右键点击的坐标&quot;);</span><br><span class="line">        label.setOpaque(true);</span><br><span class="line">        label.setBackground(Color.PINK);</span><br><span class="line">        this.add(label, BorderLayout.NORTH);</span><br><span class="line">        this.setSize(300, 200);</span><br><span class="line">        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        this.addMouseListener(new MouseAdapter() &#123;</span><br><span class="line">                public void mouseClicked(MouseEvent e) &#123;</span><br><span class="line">                    if (e.getButton() &#x3D;&#x3D; e.BUTTON1) &#123;</span><br><span class="line">                        int x &#x3D; e.getX();</span><br><span class="line">                        int y &#x3D; e.getY();</span><br><span class="line">                        String banner &#x3D; &quot;鼠标当前点击位置的坐标是&quot; + x + &quot;,&quot; + y;</span><br><span class="line">                        label.setText(banner);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        this.setVisible(true);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new MyMouseHandler();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>4.利用Random类或者Math.random()方法来产生5个30<del>80之间的随机整数。（Tips: n</del>m（n&lt;m）之间的随机数公式: n+(new Random()).nextInt(m-n+1)）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line">public class Test03 &#123;</span><br><span class="line">		public static void main(String[] args) &#123;</span><br><span class="line">			   Random rand &#x3D; new Random();</span><br><span class="line">		        int[] num &#x3D; new int[5];</span><br><span class="line">		        for (int i &#x3D; 0; i &lt; num.length; i++) &#123;</span><br><span class="line">		            num[i] &#x3D; 20 + rand.nextInt(31);</span><br><span class="line">		            System.out.println(num[i]);</span><br><span class="line">		        &#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.编写一Java程序，用中文方式显示当前时间；并输出今天是今年的第几天，星期几。（参考格式为：2020年09月25日：今天是2020年的第269天，星期五）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package day_8;</span><br><span class="line">import java.util.*;</span><br><span class="line">import java.text.*;</span><br><span class="line">public class DateTest &#123;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  SimpleDateFormat sdf&#x3D;new SimpleDateFormat(</span><br><span class="line">    &quot;yyyy年MM月dd日：今天是yyyy年的第D天，E&quot;);</span><br><span class="line">  &#x2F;&#x2F;按SimpleDateFormat对象的日期模板格式化date对象</span><br><span class="line">  System.out.println(sdf.format(new Date()));</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6.某人在玩游戏时输入密码xxxxxxx(123456)后成功进入游戏（输错5次则被强行退出），要求用程序实现密码验证的过程。（提示： 利用new BufferedReader(new InputStreamReader(System.in))建立由控制台到程序的字符流管道。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.io.*;</span><br><span class="line"> </span><br><span class="line">public class Game &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        BufferedReader br &#x3D; new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line">        String password &#x3D; &quot;&quot;;</span><br><span class="line">        boolean b &#x3D; false;</span><br><span class="line"> </span><br><span class="line">        for (int i&#x3D;0; i&lt;5; i++) &#123;</span><br><span class="line">            System.out.println(&quot;请输入密码:&quot;);</span><br><span class="line">            password &#x3D; br.readLine();</span><br><span class="line"> </span><br><span class="line">            if (password.equals(&quot;123456&quot;)) &#123;</span><br><span class="line">                System.out.println(&quot;恭喜你进入游戏&quot;);</span><br><span class="line">                b &#x3D; true;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (!b) &#123;</span><br><span class="line">            System.out.println(&quot;密码错误，游戏结束&quot;);</span><br><span class="line">            System.exit(0);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/10/04/%E5%89%8D%E7%AB%AF%E2%80%94%E6%A8%A1%E6%8B%9F%E4%B8%8B%E5%88%92%E7%BA%BF%E6%95%88%E6%9E%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/04/%E5%89%8D%E7%AB%AF%E2%80%94%E6%A8%A1%E6%8B%9F%E4%B8%8B%E5%88%92%E7%BA%BF%E6%95%88%E6%9E%9C/" itemprop="url">前端—模拟下划线效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-04T00:55:50+08:00">
+                2020-10-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="给div中添加类似下划线的效果"><a href="#给div中添加类似下划线的效果" class="headerlink" title="给div中添加类似下划线的效果"></a>给div中添加类似下划线的效果</h1><p>1.因为<u></u>标签的下划线无法设置下距离<br>所以用的是padding-bottom,border-bottom以及span<br>padding-bottom用来设置文字到下划线的距离<br>border-bottom用来模拟下划线效果<br>span 行内标签 可以用来定义各种效果</p>
+<p>代码示例如下也可以看下20.9.17的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">.divcss5-x5&#123; padding-bottom:5px; border-bottom:1px solid #000&#125;</span><br><span class="line">.divcss5-x10&#123; padding-bottom:10px; border-bottom:1px solid #000&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;divcss5-x5&quot;&gt;我下划线距离为5px&lt;&#x2F;span&gt;,</span><br><span class="line">&lt;span class&#x3D;&quot;divcss5-x10&quot;&gt;我的下划线距离为10px&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1922,7 +1627,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1972,7 +1677,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1994,7 +1699,7 @@ UNIQUE| FULLTEXT| SPATIAL：∪NQUE表示创建的足唯一性索引； FULLTEXT
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

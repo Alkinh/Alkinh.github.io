@@ -248,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/%E5%B0%8F%E6%A1%88%E4%BE%8B-%E8%AE%A1%E6%95%B0%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/29/%E8%A1%A8%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%88%86%E7%B1%BB-%E9%BB%91%E9%A9%AC45-46/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -267,7 +267,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/13/%E5%B0%8F%E6%A1%88%E4%BE%8B-%E8%AE%A1%E6%95%B0%E5%99%A8/" itemprop="url">小案例-计数器</a></h1>
+                <a class="post-title-link" href="/2021/03/29/%E8%A1%A8%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%88%86%E7%B1%BB-%E9%BB%91%E9%A9%AC45-46/" itemprop="url">表单的使用及分类_黑马45-46</a></h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:41:36+08:00">
-                2021-03-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-29T21:55:37+08:00">
+                2021-03-29
               </time>
             
 
@@ -319,693 +319,54 @@
       
         
           
-            <h1 id="小案例-计数器（06）"><a href="#小案例-计数器（06）" class="headerlink" title="小案例-计数器（06）"></a>小案例-计数器（06）</h1><ol>
-<li>新的属性：methods,用于在Vue对象中定义方法</li>
-<li>新的指令：@click，该指令用于监听某个元素的点击事件，并且需要指定当发生点击时，执行的方法（方法通常是 methods中定义的方法）</li>
+            <h1 id="（黑马44-45）表单的使用及分类"><a href="#（黑马44-45）表单的使用及分类" class="headerlink" title="（黑马44-45）表单的使用及分类"></a>（黑马44-45）表单的使用及分类</h1><ol>
+<li>使用表单是为了收集用户信息</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> 案例一</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          sub() &#123;</span><br><span class="line">            if (this.num &gt; 0) &#123;</span><br><span class="line">              this.num &#x3D; this.num - 1;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">              alert(&#39;不能再点了&#39;);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          add() &#123;</span><br><span class="line">            if (this.num &gt;&#x3D; 5) &#123;</span><br><span class="line">              alert(&#39;不能再点了&#39;);</span><br><span class="line">              return;</span><br><span class="line">            &#125;</span><br><span class="line">            this.num &#x3D; this.num + 1;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">案例2</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          add: function () &#123;</span><br><span class="line">            this.num++;</span><br><span class="line">          &#125;,</span><br><span class="line">          sub: function () &#123;</span><br><span class="line">            this.num--;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Vue%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%8E%8C%E6%8F%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/13/Vue%E8%A1%A8%E6%A0%BC%E7%9A%84%E6%8E%8C%E6%8F%A1/" itemprop="url">Vue表格的掌握</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:39:35+08:00">
-                2021-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Vue表格的掌握"><a href="#Vue表格的掌握" class="headerlink" title="Vue表格的掌握"></a>Vue表格的掌握</h1><ol>
-<li><p>Vue的表格：movies(写在data下面)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          message: &#39;案例&#39;,</span><br><span class="line">          movies: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;],</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;写法1</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<p>   ​     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">使用v-for遍历movies中的数据</span><br><span class="line"> &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li v-for&#x3D;&quot;item in movies&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">      &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          message: &#39;案例&#39;,</span><br><span class="line">          movies: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;],</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/13/Hello%20Vue%E7%9A%84%E7%BC%96%E7%A8%8B/" itemprop="url">hello Vue 的编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:35:20+08:00">
-                2021-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Hello-Vue-的编程"><a href="#Hello-Vue-的编程" class="headerlink" title="Hello Vue 的编程"></a>Hello Vue 的编程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      &#x2F;&#x2F;let(变量) const(常量)</span><br><span class="line">      const app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;, &#x2F;&#x2F;用于挂载元素的管理</span><br><span class="line">        data: &#123;</span><br><span class="line">          &#x2F;&#x2F;定义数据</span><br><span class="line">          message: &#39;hello world!&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码做了什么"><a href="#代码做了什么" class="headerlink" title="代码做了什么"></a>代码做了什么</h2><ul>
-<li>创建vue对象的时候，传入了一些 options：<ul>
-<li>{}中包含了el属性：该属性决定了这个ue对象挂载到哪个元素上，很明显，我们这里是挂载到了id为app的元素上</li>
-<li>{}中包含了data属性：该属性中通常会存储一些数据<ul>
-<li>这些数据可以是我们直接定义出来的，比如像上面这样。</li>
-<li>也可能是来自网络，从服务器加载的。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>游览器执行代码的流程<ul>
-<li>执行到第二个<script>前还是显示原来的代码</li>
-<li>执行到第二个<script>后开始创建Vue实例，并且对html进行解析和修改</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B05/" itemprop="url">黑马html课程笔记5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-03T13:05:24+08:00">
-                2021-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="P21-22-相对路径"><a href="#P21-22-相对路径" class="headerlink" title="P21.22 相对路径"></a>P21.22 相对路径</h1><ol>
-<li>相对路径：<br>以引用文件所在位置为参考基础，而建立出的目录路径。（简单来说就是图片相当于HTML页面的位置）   </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>相对路径分类</th>
-<th>符号</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>同一级路径</td>
-<td></td>
-<td>图像文件位于HTML文件同一级如《img src=”baidu.gif”/》</td>
-</tr>
-<tr>
-<td>下一级路径</td>
-<td>/</td>
-<td>图像文件位于HTML文件下一级如《img src=”images/baidu.gif”/》</td>
-</tr>
-<tr>
-<td>上一级路径</td>
-<td>../</td>
-<td>图像文件位于HTML文件上一级如《img src=”../images/baidu.gif”/》</td>
-</tr>
-</tbody></table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/02/03/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B04/" itemprop="url">黑马html课程笔记4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-03T12:50:03+08:00">
-                2021-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="P19-图像标签上"><a href="#P19-图像标签上" class="headerlink" title="P19 图像标签上"></a>P19 图像标签上</h1><ol>
-<li>img标签中 alt 和 title 的使用方法</li>
-</ol>
-<ul>
-<li>alt:替换文本，当图片显示不出来的时候，显示alt的文字</li>
-<li>title:提示文本，当鼠标放到图片上,提示的文字</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">示例</span><br><span class="line">&lt;img src&#x3D;&quot;img.jpg&quot; alt&#x3D;&quot;一张普通的图片&quot; title&#x3D;&quot;一张普通的图片&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/30/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/01/30/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B03/" itemprop="url">黑马html课程笔记3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-30T13:51:30+08:00">
-                2021-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="P12-DOCTYPE和lang以及字符集的作用"><a href="#P12-DOCTYPE和lang以及字符集的作用" class="headerlink" title="P12 DOCTYPE和lang以及字符集的作用"></a>P12 DOCTYPE和lang以及字符集的作用</h1><ol>
-<li><!DOCTYPE>
-文档类型声明，作用就是告诉游览器使用哪种HTML版本来显示网页。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">这句代码的意思是:当前页面采取的是HTML5版本来显示网页。</span><br><span class="line">注意：</span><br><span class="line">1.&lt;!DOCTYPE html&gt;声明位于文档中的最前面位置，处于&lt;html&gt;标签之前。</span><br><span class="line">2.&lt;!DOCTYPE html&gt;不是html标签，它就是文档声明标签。</span><br></pre></td></tr></table></figure>
-
 <ol start="2">
-<li>lang语言种类<br>用来定义当前文档显示的语言。</li>
-</ol>
+<li><p>表单的组成</p>
 <ul>
-<li>en定义语言为英语</li>
-<li>zh-CN定义语言为中文</li>
-<li>给游览器识别翻译用的</li>
-<li>告诉游览器或者搜索引擎这是一个英文网站，本页面采取英文来显示。</li>
+<li>在html中，一个完整的表单通常是由表单域，表单控件（也称为表单元素）和提示信息三个部分组成</li>
 </ul>
+</li>
+</ol>
 <ol start="3">
-<li>字符集<br>字符集(Character set)是多个字符的集合，以便计算机能够识别和存储各种文字</li>
-</ol>
+<li><p>表单域</p>
 <ul>
-<li>在<head>标签内，可以通过<meta>标签的charset属性    来规定HTML文档应该使用哪种字符码编程。</li>
+<li><p>表单域是一个包含表单元素的区域</p>
+</li>
+<li><p>在html标签中，<code>&lt;form&gt;</code>标签用于定义表单域,以实现用户信息的收集和传递</p>
+</li>
+<li><p><code>&lt;form&gt;</code>会把它范围内的表单元素提交给服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;url地址&quot; method&#x3D;&quot;提交方式&quot; name&#x3D;&quot;表单域名称&quot;&gt;</span><br><span class="line">            各种表单元素控件</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性值</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>action</td>
+<td>url地址</td>
+<td>用于指定接收并处理表单数据的服务器程序的url地址</td>
+</tr>
+<tr>
+<td>method</td>
+<td>get/post</td>
+<td>用于设置表单数据的提交方式，其取值为get或post</td>
+</tr>
+<tr>
+<td>name</td>
+<td>名称</td>
+<td>用于指定表单的名称,以区分同一个页面中的多个表单域。</td>
+</tr>
+</tbody></table>
+</li>
 </ul>
+</li>
+</ol>
 
           
         
@@ -1054,7 +415,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0-1/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/29/%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%BF%E7%94%A8-40-43/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -1073,7 +434,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0-1/" itemprop="url">黑马html课程笔记</a></h1>
+                <a class="post-title-link" href="/2021/03/29/%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%BF%E7%94%A8-40-43/" itemprop="url">列表标签的使用_40-43</a></h1>
         
 
         <div class="post-meta">
@@ -1085,8 +446,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-29T12:24:27+08:00">
-                2021-01-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-29T21:48:56+08:00">
+                2021-03-29
               </time>
             
 
@@ -1125,172 +486,76 @@
       
         
           
-            <h1 id="P6-WEB标准"><a href="#P6-WEB标准" class="headerlink" title="P6 WEB标准"></a>P6 WEB标准</h1><ol>
-<li><p>web标准是什么<br>(1) web标准是w3c组织和其他标准化组织制定的一系列标准的集合。w3c(万维网联盟）是国际最著名的标准化组织。</p>
-</li>
-<li><p>为什么需要web标准<br>遵循web标准除了可以让不同的开发人员写出的页面更标准，更统一以外，还有以下优点：</p>
-</li>
+            <h1 id="（黑马40-43）-列表标签的使用"><a href="#（黑马40-43）-列表标签的使用" class="headerlink" title="（黑马40-43） 列表标签的使用"></a>（黑马40-43） 列表标签的使用</h1><ol>
+<li>表格是用来显示数据的，那么<strong>列表就是用来布局的</strong>。<strong>列表</strong>最大的特点就是整齐、整洁、有序，它作为布局会更加自由和方便</li>
 </ol>
-<ul>
-<li>让web的发展前景更广阔。</li>
-<li>内容能被更广泛的设备访问</li>
-<li>更容易被搜索引擎搜索</li>
-<li>降低网站流量费用</li>
-<li>使网站更易于维护。</li>
-<li>提高页面游览速度。</li>
-</ul>
+<ol start="2">
+<li>根据使用情景不同，列表可以分为三大类<strong>：无序列表、有序列表和自定义列表。</strong></li>
+</ol>
 <ol start="3">
-<li>web标准的构成<br>主要包括结构(Structure),表现(Presentation)和行为(Behavior)三个方面。</li>
+<li><p>无序列表</p>
+<p><code>&lt;ul&gt;</code>标签表示HTML页面中项目的无序列表，一般会以项目符号呈现列表项，而列表项使用<code>&lt;li&gt;</code>标签定义。</p>
+<ul>
+<li>无序列表各个列表项之间是没有顺序级别之分，是并列的。</li>
+<li><code>&lt;ul&gt;&lt;/ul&gt;</code>中只能嵌套<code>&lt;li&gt;&lt;/li&gt;</code>，直在<code>&lt;u&gt;&lt;/u&gt;</code>标签中输入其他标签或者文字的做法是不被允许的</li>
+<li><code>&lt;li&gt;</code>与<code>&lt;/li&gt;</code>之间相当于一个容器，可以容纳所有元素</li>
+<li>无序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置</li>
+</ul>
+</li>
 </ol>
+<ol start="4">
+<li><p>有序列表</p>
+<p>有序列表即为有顺序排列的列表，其各个列表会按照一定的顺序排列定义。</p>
+<p>在HTML标签中，<code>&lt;ol&gt;</code>标签用于定义有序列表，列表排序以数字来显示，并且使用<code>&lt;li&gt;</code>标签来定义列表项.</p>
+<ul>
+<li><code>&lt;ol&gt;&lt;/ol&gt;</code>中只能嵌套<code>&lt;li&gt;&lt;/li&gt;</code>，直在<code>&lt;ol&gt;&lt;/ol&gt;</code>标签中输入其他标签或者文字的做法是不被允许的</li>
+<li><code>&lt;li&gt;</code>与<code>&lt;/li&gt;</code>之间相当于一个容器，可以容纳所有元素</li>
+<li>有序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li><p>自定义列表</p>
+<p>自定义列表使用场景：</p>
+<p>自定义列表常用于对术语或名词进行解释和描述，定义列表的列表项没有任何项目符号</p>
+<ul>
+<li><p>在HTML标签中，<code>&lt;dl&gt;</code>标签用于定义描述列表（或定义列表），该标签会与<code>&lt;dt&gt;</code>（定义项目/名字）和<code>&lt;dd&gt;</code>（描述每一个项目/名字）一起使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">     &lt;dt&gt;名词一&lt;&#x2F;dt&gt;</span><br><span class="line">     &lt;dd&gt;名词一解释1&lt;&#x2F;dd&gt;</span><br><span class="line">     &lt;dd&gt;名词一解释2&lt;&#x2F;dd&gt;</span><br><span class="line">&lt;&#x2F;dl&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;dl&gt;&lt;/dl&gt;</code>里面只能包含<code>&lt;dt&gt;</code>和<code>&lt;dd&gt;</code></li>
+<li><code>&lt;dt&gt;</code>和<code>&lt;dd&gt;</code>个数没有限制,经常是一个<code>&lt;dt&gt;</code>对应多个<code>&lt;dd&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="6">
+<li><p>总结</p>
 <table>
 <thead>
 <tr>
-<th>标准</th>
+<th>标签名</th>
+<th>定义</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>结构</td>
-<td>结构用于对<strong>网页元素</strong>进行分类和整理，现阶段主要学习HTMl.</td>
+<td><code>&lt;ul&gt;&lt;/ul&gt;</code></td>
+<td>无序列表</td>
+<td>里面只能包含li,没有顺序，使用较多，li里面可以包含任何标签</td>
 </tr>
 <tr>
-<td>表现</td>
-<td>表现用于设置网页元素的板式、颜色、大小等<strong>外观样式</strong>，主要指的是css.</td>
+<td><code>&lt;ol&gt;&lt;/ol&gt;</code></td>
+<td>有序列表</td>
+<td>里面只能包含li,有顺序，使用相对较少，li里面可以包含任何标签</td>
 </tr>
 <tr>
-<td>行为</td>
-<td>行为是指网页模型的定义以及<strong>交互</strong>的编写，现阶段只要学习JavaScript</td>
+<td><code>&lt;dl&gt;&lt;/dl&gt;</code></td>
+<td>自定义列表</td>
+<td>里面只能包含dt和dd,dd和dt里面可以放任何标签</td>
 </tr>
 </tbody></table>
-<p>web标准提出的最佳体验方案：结构，样式，行为相分离。<br>简单理解：结构写到html文件中，表现写到css文件中，行为写到JavaScript文件中。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/01/29/%E9%BB%91%E9%A9%AChtml%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" itemprop="url">黑马html课程笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-29T11:26:35+08:00">
-                2021-01-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="P4-网页的相关概念"><a href="#P4-网页的相关概念" class="headerlink" title="P4 网页的相关概念"></a>P4 网页的相关概念</h1><p>一.网页</p>
-<ol>
-<li><p>什么是网页<br>(1)网站是指在因特网上根据一定的规则，使用HTML等制作的用于展示特定内容相关的网页集合，<br>(2)网页是网站中的一”页”，通常是HTML格式的文件，它要通过游览器来阅读。<br>(3)网页是构成网站的基本元素，它通常由图片，链接，文字，声音，视频等元素组成，通常我们看到的网页，常见以.html或.html后缀结尾的文件，因此将其俗称为HTML文件。</p>
-</li>
-<li><p>什么是HTML<br>(1)html指的是超文本标记语言（Hyper Text Markup Language)，它是用来描述网页的一种语言。<br>(2)html不是一种编程语言，而是一种标记语言（Markup Language）.<br>(3)标记语言是一套标记标签(markup tag)。</p>
-</li>
-<li><p>超文本，有两层含义：<br>(1)它可以加入图片，声音，动画，多媒体等内容（超越了文本限制）。<br>(2)它还可以从一个文件跳转到另一个文件，与世界各地主机的文件连接（超级链接文本）。</p>
-</li>
-<li><p>网页的生成<br>(1)网页是由网页元素组成的，这些元素是利用html标签描述出来，然后通过游览器解析来显示给用户看的。<br>前端人员开发代码 —&gt; 游览器显示代码(解析，渲染) —&gt; 生成最后的web页面 </p>
 </li>
 </ol>
 
@@ -1341,7 +606,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/01/09/java%E5%A4%8D%E4%B9%A0%E9%A2%982/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/24/V-bind%E7%BB%91%E5%AE%9Astyle-Vue18-19/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -1360,7 +625,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/01/09/java%E5%A4%8D%E4%B9%A0%E9%A2%982/" itemprop="url">java复习题2</a></h1>
+                <a class="post-title-link" href="/2021/03/24/V-bind%E7%BB%91%E5%AE%9Astyle-Vue18-19/" itemprop="url">V-bind绑定style_Vue18.19</a></h1>
         
 
         <div class="post-meta">
@@ -1372,8 +637,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-09T19:46:03+08:00">
-                2021-01-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-24T21:51:01+08:00">
+                2021-03-24
               </time>
             
 
@@ -1382,28 +647,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1434,17 +677,51 @@
       
         
           
-            <h1 id="《Java高级程序设计》编程复习题二"><a href="#《Java高级程序设计》编程复习题二" class="headerlink" title="《Java高级程序设计》编程复习题二"></a>《Java高级程序设计》编程复习题二</h1><p>1.1、    Java编写程序创建一HashSet集合，并在HashSet集合中添加3个Person对象（属性有id和name），把姓名相同的人当做同一个人，禁止重复添加。然后用数据[01 Tom；xx 张三；02 Tom]测试程序。<br>（提示：要重写hashCode() 和equals() 方法。）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import java.util.HashSet;</span><br><span class="line"></span><br><span class="line">public class Person &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  private int age;</span><br><span class="line"></span><br><span class="line">  public Person(String name, int age) &#123;</span><br><span class="line">  super();</span><br><span class="line">  this.name &#x3D; name;</span><br><span class="line">  this.age &#x3D; age;       &#x2F;&#x2F;定义name和age属性</span><br><span class="line"> &#125;&#x2F;&#x2F;K.kuimeng</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public String toString() &#123;</span><br><span class="line">  return &quot;姓名：&quot; + name + &quot;      年龄：&quot; + age ;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public int hashCode() &#123;</span><br><span class="line">  &#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">  return name.hashCode();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public boolean equals(Object o) &#123;</span><br><span class="line">  &#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">  Person c&#x3D;(Person)o;&#x2F;&#x2F;K.kuimeng</span><br><span class="line">  return c.name.equals(this.name);   &#x2F;&#x2F;根据姓名判断是否相等</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  HashSet&lt;Person&gt; hashSet&#x3D;new HashSet&lt;Person&gt;() ;</span><br><span class="line">  Person person1&#x3D;new Person(&quot;王猛&quot;,17);</span><br><span class="line">  Person person2&#x3D;new Person(&quot;张立&quot;,20);</span><br><span class="line">  Person person3&#x3D;new Person(&quot;王猛&quot;,22);   &#x2F;&#x2F;创建三个对象</span><br><span class="line">  hashSet.add(person1);</span><br><span class="line">  hashSet.add(person2);</span><br><span class="line">  hashSet.add(person3);</span><br><span class="line"></span><br><span class="line">  for (Person persons:hashSet) &#123;</span><br><span class="line">    System.out.println(persons);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="V-bind绑定style-Vue18-19"><a href="#V-bind绑定style-Vue18-19" class="headerlink" title="V-bind绑定style Vue18.19"></a>V-bind绑定style Vue18.19</h1><ol>
+<li>可以利用V-bind:style来绑定一些css内联样式</li>
+</ol>
+<ol start="2">
+<li><p>在写css属性名时，比如font-size</p>
+<ul>
+<li><p>可以使用驼峰式：<strong>fontSize</strong></p>
+</li>
+<li><p>或短横线分隔(用单引号括起来)：<strong>’font-size’</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :style&#x3D;&quot;&#123;key(属性名): value：(属性值)&gt;hello world&lt;&#x2F;h2&gt;</span><br><span class="line">&#39;50px&#39;必须加上单引号,否则是当做一个变量去解析</span><br><span class="line">&lt;h2 :style&#x3D;&quot;&#123;fontSize: &#39;50px&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
 
-<p>  2.编写一程序，考生利用I/O流（字节流和字符流）或者NIO技术，拷贝项目目录下的一个文件src.txt到dest.txt；再利用字符流技术把dest.txt文件读出来显示在控制台上。（提示：在Java项目的目录下创建源文件src.txt，并输入信息后保存，然后把它拷贝到目标文件和读出。）<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  package day_8;</span><br><span class="line"> import java.io.*;</span><br><span class="line">public class readTest &#123;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) throws Exception&#123;</span><br><span class="line">  &#x2F;&#x2F;创建文件输入流对象读取指定目录下的文件</span><br><span class="line">  FileInputStream in&#x3D;new FileInputStream(&quot;src.txt&quot;);</span><br><span class="line">  &#x2F;&#x2F;创建文件输出流对象将读取到的文件内容写到指定目录的文件中</span><br><span class="line">  FileOutputStream out&#x3D;new FileOutputStream(&quot;dest.txt&quot;);</span><br><span class="line">  &#x2F;&#x2F;定义一个int类型的变量len</span><br><span class="line">  int len1&#x3D;0;</span><br><span class="line">  long beginTime&#x3D;System.currentTimeMillis();&#x2F;&#x2F;获取拷贝文件前的系统时间</span><br><span class="line">  &#x2F;&#x2F;通过循环将读取到的文件字节信息写到新文件,条件为读取src文件中字节不为-1,-1代表结束</span><br><span class="line">  while((len1&#x3D;in.read())!&#x3D;-1) &#123;</span><br><span class="line">   out.write(len1);&#x2F;&#x2F;将len写入out中</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F;获取拷贝文件后的系统时间</span><br><span class="line">  long endTime&#x3D;System.currentTimeMillis();</span><br><span class="line">  System.out.println(&quot;花费时间为：&quot;+(endTime-beginTime+&quot;毫秒&quot;));</span><br><span class="line">  in.close();</span><br><span class="line">  out.close();</span><br><span class="line">  &#x2F;&#x2F;创建FileReader对象，并指定需要读取的文件</span><br><span class="line">  FileReader fr&#x3D;new FileReader(&quot;dest.txt&quot;);</span><br><span class="line">  int len2&#x3D;0;</span><br><span class="line">  while((len2&#x3D;fr.read())!&#x3D;-1) &#123;&#x2F;&#x2F;读到-1代表到了末尾</span><br><span class="line">   System.out.print((char)len2);&#x2F;&#x2F;将输出的int类型强制转换为char类型</span><br><span class="line">  &#125;</span><br><span class="line">  fr.close();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>3.编写一个JFrame窗口，在窗口最上方放置一个Jlabel标签，标签中默认文本是“此处显示鼠标右键单击坐标”；为Jframe窗口添加一个鼠标事件，当鼠标右键单击窗口时，鼠标的坐标会在Jlabel中显示出来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.*;</span><br><span class="line"> </span><br><span class="line">import javax.swing.*;</span><br><span class="line"> </span><br><span class="line">public class MyMouseHandler extends JFrame &#123;</span><br><span class="line">    public MyMouseHandler() &#123;</span><br><span class="line">        final JLabel label &#x3D; new JLabel(&quot;此处显示鼠标右键点击的坐标&quot;);</span><br><span class="line">        label.setOpaque(true);</span><br><span class="line">        label.setBackground(Color.PINK);</span><br><span class="line">        this.add(label, BorderLayout.NORTH);</span><br><span class="line">        this.setSize(300, 200);</span><br><span class="line">        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        this.addMouseListener(new MouseAdapter() &#123;</span><br><span class="line">                public void mouseClicked(MouseEvent e) &#123;</span><br><span class="line">                    if (e.getButton() &#x3D;&#x3D; e.BUTTON1) &#123;</span><br><span class="line">                        int x &#x3D; e.getX();</span><br><span class="line">                        int y &#x3D; e.getY();</span><br><span class="line">                        String banner &#x3D; &quot;鼠标当前点击位置的坐标是&quot; + x + &quot;,&quot; + y;</span><br><span class="line">                        label.setText(banner);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        this.setVisible(true);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new MyMouseHandler();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>4.利用Random类或者Math.random()方法来产生5个30<del>80之间的随机整数。（Tips: n</del>m（n&lt;m）之间的随机数公式: n+(new Random()).nextInt(m-n+1)）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line">public class Test03 &#123;</span><br><span class="line">		public static void main(String[] args) &#123;</span><br><span class="line">			   Random rand &#x3D; new Random();</span><br><span class="line">		        int[] num &#x3D; new int[5];</span><br><span class="line">		        for (int i &#x3D; 0; i &lt; num.length; i++) &#123;</span><br><span class="line">		            num[i] &#x3D; 20 + rand.nextInt(31);</span><br><span class="line">		            System.out.println(num[i]);</span><br><span class="line">		        &#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.编写一Java程序，用中文方式显示当前时间；并输出今天是今年的第几天，星期几。（参考格式为：2020年09月25日：今天是2020年的第269天，星期五）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package day_8;</span><br><span class="line">import java.util.*;</span><br><span class="line">import java.text.*;</span><br><span class="line">public class DateTest &#123;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  SimpleDateFormat sdf&#x3D;new SimpleDateFormat(</span><br><span class="line">    &quot;yyyy年MM月dd日：今天是yyyy年的第D天，E&quot;);</span><br><span class="line">  &#x2F;&#x2F;按SimpleDateFormat对象的日期模板格式化date对象</span><br><span class="line">  System.out.println(sdf.format(new Date()));</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6.某人在玩游戏时输入密码xxxxxxx(123456)后成功进入游戏（输错5次则被强行退出），要求用程序实现密码验证的过程。（提示： 利用new BufferedReader(new InputStreamReader(System.in))建立由控制台到程序的字符流管道。）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.io.*;</span><br><span class="line"> </span><br><span class="line">public class Game &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        BufferedReader br &#x3D; new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line">        String password &#x3D; &quot;&quot;;</span><br><span class="line">        boolean b &#x3D; false;</span><br><span class="line"> </span><br><span class="line">        for (int i&#x3D;0; i&lt;5; i++) &#123;</span><br><span class="line">            System.out.println(&quot;请输入密码:&quot;);</span><br><span class="line">            password &#x3D; br.readLine();</span><br><span class="line"> </span><br><span class="line">            if (password.equals(&quot;123456&quot;)) &#123;</span><br><span class="line">                System.out.println(&quot;恭喜你进入游戏&quot;);</span><br><span class="line">                b &#x3D; true;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (!b) &#123;</span><br><span class="line">            System.out.println(&quot;密码错误，游戏结束&quot;);</span><br><span class="line">            System.exit(0);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li>绑定方式一：对象语法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:style&#x3D;&quot;&#123;color: currentColor,fontSize: fontSize + &#39;px&#39;&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>style后面跟的是一个对象类型<ul>
+<li>对象的key是css属性名称</li>
+<li>对象的value是具体赋的值，值可以来自于data中的属性</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>绑定方式二：数组语法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:style&#x3D;&quot;[baseStyles,overidingStyles]&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>styte后面跟的是一个数组类型<ul>
+<li>多个值，分割即可。</li>
+</ul>
+</li>
+</ul>
+
           
         
       
@@ -1492,7 +769,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/10/04/%E5%89%8D%E7%AB%AF%E2%80%94%E6%A8%A1%E6%8B%9F%E4%B8%8B%E5%88%92%E7%BA%BF%E6%95%88%E6%9E%9C/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/24/V-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass-Vue16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -1511,7 +788,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/10/04/%E5%89%8D%E7%AB%AF%E2%80%94%E6%A8%A1%E6%8B%9F%E4%B8%8B%E5%88%92%E7%BA%BF%E6%95%88%E6%9E%9C/" itemprop="url">前端—模拟下划线效果</a></h1>
+                <a class="post-title-link" href="/2021/03/24/V-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass-Vue16/" itemprop="url">V-bind动态绑定class-Vue16</a></h1>
         
 
         <div class="post-meta">
@@ -1523,8 +800,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-04T00:55:50+08:00">
-                2020-10-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-24T20:12:02+08:00">
+                2021-03-24
               </time>
             
 
@@ -1533,28 +810,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1585,9 +840,1048 @@
       
         
           
-            <h1 id="给div中添加类似下划线的效果"><a href="#给div中添加类似下划线的效果" class="headerlink" title="给div中添加类似下划线的效果"></a>给div中添加类似下划线的效果</h1><p>1.因为<u></u>标签的下划线无法设置下距离<br>所以用的是padding-bottom,border-bottom以及span<br>padding-bottom用来设置文字到下划线的距离<br>border-bottom用来模拟下划线效果<br>span 行内标签 可以用来定义各种效果</p>
-<p>代码示例如下也可以看下20.9.17的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">.divcss5-x5&#123; padding-bottom:5px; border-bottom:1px solid #000&#125;</span><br><span class="line">.divcss5-x10&#123; padding-bottom:10px; border-bottom:1px solid #000&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;span class&#x3D;&quot;divcss5-x5&quot;&gt;我下划线距离为5px&lt;&#x2F;span&gt;,</span><br><span class="line">&lt;span class&#x3D;&quot;divcss5-x10&quot;&gt;我的下划线距离为10px&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+            <h1 id="V-bind动态绑定class-Vue16"><a href="#V-bind动态绑定class-Vue16" class="headerlink" title="V-bind动态绑定class-Vue16"></a>V-bind动态绑定class-Vue16</h1><ol>
+<li><p>绑定方式：对象语法</p>
+<ul>
+<li>对象语法的含义是:class后面跟的是一个对象</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>用法一：直接通过<code>{}</code>绑定一个类(对象语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;&#123;&#39;active&#39;:isActive&quot;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>语法二：也可以通过判断，传入多个值（对象语法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>语法三：和普通的类同时存在，并不冲突（对象语法）</p>
+<p>注：如果 isActive和 IsLine都为true，那么会有 title/active/line三个类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p>语法四：如果过于复杂，可以放在一个methods或者computed中(对象语法)</p>
+<p>注：classes是一个计算属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;classes&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li><p>绑定对象：数组语法</p>
+<ul>
+<li>数组语法的含义是：class后面跟的是一个数组</li>
+</ul>
+</li>
+</ol>
+<ol start="7">
+<li><p>用法一：直接通过{}绑定一个类(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;[&#39;active&#39;]&quot;&gt;Hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="8">
+<li><p>用法二：也可以传入多个值(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 :class&#x3D;&quot;[&#39;active&#39;,&#39;line&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="9">
+<li><p>用法三：和普通的类同时存在，并不冲突</p>
+<p>注：会有 title/active/line三个类(数组语法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;te&quot; :class&#x3D;&quot;[&#39;active&#39;,&#39;line&#39;&#125;&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="10">
+<li>用法四：如果过于复杂，可以放在一个methods或者computed中(对象语法)</li>
+</ol>
+<p>​       注：classes是一个计算属性(数组语法)</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class&#x3D;&quot;title&quot; :class&#x3D;&quot;classes&quot;&gt;hello world&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure></code></pre><hr>
+<ol start="6">
+<li><p>练习</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue&#x2F;dist&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    .active &#123;</span><br><span class="line">      color: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;&#x2F;style&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;h2 :class&#x3D;&quot;&#123;active:isActive,line:isLine&#125;&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;h2 :class&#x3D;&quot;getClasses()&quot;&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;btnClick&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var app &#x3D; new Vue(&#123;</span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          msg: &#39;你好啊&#39;,</span><br><span class="line">          isActive: true,</span><br><span class="line">          isLine: true,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          btnClick: function () &#123;</span><br><span class="line">            this.isActive &#x3D; !this.isActive;</span><br><span class="line">          &#125;,</span><br><span class="line">          getClasses: function () &#123;</span><br><span class="line">            return &#123; active: this.isActive, line: this.isLine &#125;;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/24/%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93-3-21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/24/%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93-3-21/" itemprop="url">轮播图作业总结_3.21</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-24T16:18:17+08:00">
+                2021-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="轮播图作业总结-3-21"><a href="#轮播图作业总结-3-21" class="headerlink" title="轮播图作业总结_3.21"></a>轮播图作业总结_3.21</h1><ol>
+<li><p>先放源代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;style lang&#x3D;&quot;&quot;&gt;</span><br><span class="line">      * &#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">        padding: 0;</span><br><span class="line">        list-style: none;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      .app &#123;</span><br><span class="line">        width: 500px;</span><br><span class="line">        height: 300px;</span><br><span class="line">        margin: 0 auto;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">        position: relative;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      .box &#123;</span><br><span class="line">        width: 500px;</span><br><span class="line">        height: 300px;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      li &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      img &#123;</span><br><span class="line">        width: 500px;</span><br><span class="line">        height: 300px;</span><br><span class="line">      &#125;</span><br><span class="line">      .A &#123;</span><br><span class="line">        width: 50px;</span><br><span class="line">        height: 50px;</span><br><span class="line">        float: left;</span><br><span class="line">        position: absolute;</span><br><span class="line">        margin: 125px 0 0 0;</span><br><span class="line">        transition: 0.3s;</span><br><span class="line">        font-size: 30px;</span><br><span class="line">        border-radius: 25px;</span><br><span class="line">      &#125;</span><br><span class="line">      .B &#123;</span><br><span class="line">        width: 50px;</span><br><span class="line">        height: 50px;</span><br><span class="line">        float: left;</span><br><span class="line">        margin: 125px 0 0 450px;</span><br><span class="line">        position: absolute;</span><br><span class="line">        border: none;</span><br><span class="line">        transition: 0.3s;</span><br><span class="line">        font-size: 30px;</span><br><span class="line">        border-radius: 25px;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;unpkg.com&#x2F;vue&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;li class&#x3D;&quot;box&quot; v-for&#x3D;&quot;(image,index) in img&quot; :key&#x3D;&quot;index&quot; v-show&#x3D;&quot;index&#x3D;&#x3D;&#x3D;gather&quot;&gt;</span><br><span class="line">        &lt;a class&#x3D;&quot;imgbox&quot;&gt;</span><br><span class="line">          &lt;button class&#x3D;&quot;A&quot; @click&#x3D;&quot;back&quot; v-show&#x3D;&quot;index&gt;0&quot;&gt;&lt;&lt;&#x2F;button&gt;</span><br><span class="line">          &lt;button class&#x3D;&quot;B&quot; @click&#x3D;&quot;next&quot; v-show&#x3D;&quot;index&lt;3&quot;&gt;&gt;&lt;&#x2F;button&gt;</span><br><span class="line">          &lt;img :src&#x3D;&quot;image&quot; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      new Vue(&#123;</span><br><span class="line">        el: &#39;.app&#39;,</span><br><span class="line">        data: &#123;</span><br><span class="line">          gather: 0,</span><br><span class="line">          img: [&#39;.&#x2F;img&#x2F;1.jpg&#39;, &#39;.&#x2F;img&#x2F;2.jpg&#39;, &#39;.&#x2F;img&#x2F;3.jpg&#39;, &#39;.&#x2F;img&#x2F;4.jpg&#39;],</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">          back() &#123;</span><br><span class="line">            if (this.gather &gt; 0) &#123;</span><br><span class="line">              this.gather &#x3D; this.gather - 1;</span><br><span class="line">              return;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          next() &#123;</span><br><span class="line">            if (this.gather &gt;&#x3D; 3) &#123;</span><br><span class="line">              return;</span><br><span class="line">            &#125;</span><br><span class="line">            this.gather &#x3D; this.gather + 1;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>轮播图使用v-for遍历数组中的图片，然后一个个显示出来，要使用key来绑定来对准图片</p>
+</li>
+<li><p>按钮的功能代码如下，和计数器差不多。首先是使用v-show来使index和后面创建的一个函数对等，然后按钮功能设置为函数的加减来带动key:index的加减使图片轮播。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">back() &#123;</span><br><span class="line">  if (this.gather &gt; 0) &#123;</span><br><span class="line">     this.gather &#x3D; this.gather - 1;</span><br><span class="line">     return;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;,</span><br><span class="line"> next() &#123;</span><br><span class="line">   if (this.gather &gt;&#x3D; 3) &#123;</span><br><span class="line">      return;</span><br><span class="line">     &#125;</span><br><span class="line">     this.gather &#x3D; this.gather + 1;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按钮的条件显示，使用的是v-show。使用v-show来检测key的值,当key的值不满足v-show的条件则为false(不显示)，满足条件后为true则显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button class&#x3D;&quot;A&quot; @click&#x3D;&quot;back&quot; v-show&#x3D;&quot;index&gt;0&quot;&gt;&lt;&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button class&#x3D;&quot;B&quot; @click&#x3D;&quot;next&quot; v-show&#x3D;&quot;index&lt;3&quot;&gt;&gt;&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/23/Vue%E7%9A%84%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4-Vue13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/23/Vue%E7%9A%84%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4-Vue13/" itemprop="url">Vue的其他指令_Vue13</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-23T16:10:46+08:00">
+                2021-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Vue13-Vue的其它指令"><a href="#Vue13-Vue的其它指令" class="headerlink" title="(Vue13) Vue的其它指令"></a>(Vue13) Vue的其它指令</h1><ol>
+<li><p>V-once指令</p>
+<ul>
+<li>该指令后面不需要跟任何表达式</li>
+<li>令该元素和组件无法进行第二次修改，无法随着数据的改变而改变</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 v-once&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;h2&gt;案例</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>V-html指令</p>
+<ul>
+<li>该指令后面往往会跟上一个string类型</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>会将string的html解析出来并且进行渲</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h2 v-html&#x3D;&quot;url&quot;&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">url:&#39;&lt;a href&#x3D;&quot;www.baidu.com&quot;&gt;百度一下&lt;&#x2F;a&gt;&#39;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ol start="3">
+<li><p>V-text指令</p>
+<ul>
+<li><p>v-text作用和 Mustache比较相似：都是用于将数据显示在界面中</p>
+</li>
+<li><p>v-text通常情况下，接受一个 string类型</p>
+</li>
+<li><p>不灵活,一般不使用</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 v-text&#x3D;&quot;message&quot;&gt;&lt;&#x2F;h2&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>V-pre指令</p>
+<ul>
+<li><p>用于跳过这个元素和它子元素的编译过程，用于显示原本的 Mustache语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-pre&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;p&gt;案例</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li><p>V-cloak</p>
+<ul>
+<li><p>在某些情况下，我们浏览器可能会直接显然出未编译的 Mustache标签,所以用V-cloak遮掩。</p>
+</li>
+<li><p>V-cloak的特性，vue解析前，div中有一个属性v_cloak，解析后就没有这个属性了，可以用来延迟显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 v-cloak&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;h2&gt;案例</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/23/%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-%E9%BB%91%E9%A9%AC33-39/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/23/%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-%E9%BB%91%E9%A9%AC33-39/" itemprop="url">表格标签的基本使用-黑马33~39</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-23T16:08:57+08:00">
+                2021-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="（黑马33-39）-表格标签的基本使用"><a href="#（黑马33-39）-表格标签的基本使用" class="headerlink" title="（黑马33-39） 表格标签的基本使用"></a>（黑马33-39） 表格标签的基本使用</h1><ol>
+<li>表格主要<strong>用于显示、展示数据</strong>，因为它可以让数据显示的非常的规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个清爽简约的表格能够把繁琐的数据表现得很有条理。</li>
+</ol>
+<ol start="2">
+<li><p>表格的基本语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">        	&lt;th&gt;&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;td&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>&lt;tablie&gt;</code>标签是用来定义表格的</p>
+</li>
+<li><p><code>&lt;tr&gt;</code>标签用于定义表格中的行，必须嵌套在<code>&lt;table&gt;</code>标签中</p>
+</li>
+<li><p><code>&lt;th&gt;</code>标签表示表头单元格，表头单元格位于表格的第一行或第一列，表头单元格里面的文本内容加居中显示</p>
+</li>
+<li><p><code>&lt;td&gt;</code>标签用于定义表格中的单元格,必须嵌套在<code>&lt;tr&gt;</code>标签中</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>表格属性</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><del>align</del></td>
+<td><del>left、center、right</del></td>
+<td><del>规定表格相对元素的对其方式</del>（现版本已弃用，用margin来代替）</td>
+</tr>
+<tr>
+<td>border</td>
+<td>1或“ ”</td>
+<td>规定表格单元是否拥有边框，默认为“ ”,表示没有边框</td>
+</tr>
+<tr>
+<td>cellpadding</td>
+<td>像素值</td>
+<td>规定单元边沿与其内容之间的空白，默认为一像素。</td>
+</tr>
+<tr>
+<td>cellspacing</td>
+<td>像素值</td>
+<td>规定单元格之间的空白，默认2像素</td>
+</tr>
+<tr>
+<td>width</td>
+<td>像素值</td>
+<td>规定表格的宽度</td>
+</tr>
+</tbody></table>
+<ul>
+<li>上面的属性要写到<code>&lt;table&gt;</code>里面</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>表格结构标签</p>
+<ul>
+<li><p>使用场景：因为表格可能很长为了更好的表示表格的语义，可以将表格分割成表格头部和表格主体两大部分</p>
+</li>
+<li><p>在表格标签中，分别用：<strong><code>&lt;thead&gt;</code>标签表格的头部区域、<code>&lt;tbody&gt;</code>标签表格的主体区域</strong>这样可以更好的分清表格结构。</p>
+<ul>
+<li><p><code>&lt;thead&gt;</code>：用于定义表格的头部。内部必须拥有<tr>标签。一般是位于第一行。</p>
+</li>
+<li><p><code>&lt;tbody&gt;</code>：用于定义表格主体，主要用于存放数据本体</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li><p>合并单元格</p>
+<ul>
+<li><p>跨行合并：rowspan=“合并单元格的个数”，最上侧单元格为目标单元格，写合并代码。</p>
+</li>
+<li><p>跨列合并：colspan=”合并单元格的个数”，最左侧单元格为目标单元格，写合并代码。</p>
+</li>
+<li><p>合并单元格三部曲：</p>
+<ul>
+<li>先确定跨行还是跨列合并</li>
+<li>找到目标单元格，写上合并的单元格数量。比如<code>&lt;td colspan=&quot;2&gt;&lt;td&gt;&quot;</code></li>
+<li>删除多余的单元格</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/23/%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5-%E9%BB%91%E9%A9%AC06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/23/%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5-%E9%BB%91%E9%A9%AC06/" itemprop="url">锚点链接-黑马06</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-23T16:06:27+08:00">
+                2021-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="（黑马06）-锚点链接"><a href="#（黑马06）-锚点链接" class="headerlink" title="（黑马06） 锚点链接"></a>（黑马06） 锚点链接</h1><ol>
+<li>锚点链接：当我们点击链接，可以快速定位到页面中的某个属性。</li>
+</ol>
+<ul>
+<li><p>在链接文本的href属性中，设置属性值为<strong><em>#名字</em></strong>的形式  ，如<code>&lt;a href=&quot;#two&quot;&gt;第二集&lt;/a&gt;</code></p>
+</li>
+<li><p>找到目标位置标签，里面添加一个id属性=刚才的名字，如：<code>&lt;h3 id=&quot;two&quot;&gt;第二季介绍&lt;/h3&gt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">        &lt;a href&#x3D;&quot;#two&quot;&gt;第二集&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;h3 id&#x3D;&quot;two&quot;&gt;第二集介绍&lt;&#x2F;h3&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">案例</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/23/Vue%E7%9A%84options%E9%80%89%E9%A1%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/23/Vue%E7%9A%84options%E9%80%89%E9%A1%B9/" itemprop="url">Vue的options选项</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-23T16:03:52+08:00">
+                2021-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Vue的options选项"><a href="#Vue的options选项" class="headerlink" title="Vue的options选项"></a>Vue的options选项</h1><ol>
+<li><p>目前掌握这些就好</p>
+<p>​    </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el</td>
+<td>string |HTMLElement</td>
+<td>决定之后Vue实例会管理哪一个Dom</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object|Function</td>
+<td>Vue实例对应的数据对象（组件当中data必须是一函数）。</td>
+</tr>
+<tr>
+<td>methods</td>
+<td>{[key:string]:Function</td>
+<td>定义属于Vue的一些方法，可以在其他地方调用，也可以在指令中使用。</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Vue%E4%B8%AD%E7%9A%84MVVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/13/Vue%E4%B8%AD%E7%9A%84MVVM/" itemprop="url">Vue中的MVVM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:42:51+08:00">
+                2021-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Vue中的MVVM-08"><a href="#Vue中的MVVM-08" class="headerlink" title="Vue中的MVVM(08)"></a>Vue中的MVVM(08)</h1><ul>
+<li><p>MVVM分为三个部分：分别是M（Model，模型层 ），V（View，视图层），VM（ViewModel，V与M连接的桥梁，也可以看作为控制器）</p>
+<ol>
+<li>M：模型层，主要负责业务数据相关；</li>
+<li>视图层，顾名思义，负责视图相关，细分下来就是html+css层；</li>
+<li>VM：V与M沟通的桥梁，负责监听M或者V的修改，是实现MVVM双向绑定的要点；</li>
+</ol>
+</li>
+<li><p>MVVM支持双向绑定，意思就是当M层数据进行修改时，VM层会监测到变化，并且通知V层进行相应的修改，反之修改V层则会通知M层数据进行修改，以此也实现了视图与模型层的相互解耦；</p>
+</li>
+<li><p>关系图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/1.webp" alt=""></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">案例2</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line"></span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;			view</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    </span><br><span class="line">      var app &#x3D; new Vue(&#123;                       viewmodel</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;									model</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        methods: &#123;</span><br><span class="line">          add: function () &#123;</span><br><span class="line">            this.num++;</span><br><span class="line">          &#125;,</span><br><span class="line">          sub: function () &#123;</span><br><span class="line">            this.num--;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>计数器中的mvvm</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/%E8%AE%A1%E6%95%B0%E5%99%A8%E4%B8%AD%E7%9A%84mvvm.png" alt=""></p>
 
           
         
@@ -1627,7 +1921,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1677,7 +1971,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1699,7 +1993,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
