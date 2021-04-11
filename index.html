@@ -248,6 +248,849 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/12/%E4%B9%A6%E7%B1%8D%E8%B4%AD%E7%89%A9%E8%BD%A6%E4%BB%A3%E7%A0%81-Vue40-43/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/12/%E4%B9%A6%E7%B1%8D%E8%B4%AD%E7%89%A9%E8%BD%A6%E4%BB%A3%E7%A0%81-Vue40-43/" itemprop="url">书籍购物车代码_Vue40-43</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T00:11:55+08:00">
+                2021-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>html代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">      &lt;div v-if&#x3D;&quot;books.length &quot;&gt;</span><br><span class="line">        &lt;table border&#x3D;&quot;1px &quot; cellspacing&#x3D;&quot;0&quot;&gt;</span><br><span class="line">          &lt;thead&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">              &lt;th&gt;&lt;&#x2F;th&gt;</span><br><span class="line">              &lt;th&gt;书籍名称&lt;&#x2F;th&gt;</span><br><span class="line">              &lt;th&gt;出版日期&lt;&#x2F;th&gt;</span><br><span class="line">              &lt;th&gt;价格&lt;&#x2F;th&gt;</span><br><span class="line">              &lt;th&gt;购买数量&lt;&#x2F;th&gt;</span><br><span class="line">              &lt;th&gt;操作&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;&#x2F;tr&gt;</span><br><span class="line">          &lt;&#x2F;thead&gt;</span><br><span class="line"></span><br><span class="line">          &lt;tbody&gt;</span><br><span class="line">            &lt;tr v-for&#x3D;&quot;(item,index) in books&quot;&gt;</span><br><span class="line">              &lt;td&gt;&#123;&#123;item.id&#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">              &lt;td&gt;&#123;&#123;item.name&#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">              &lt;td&gt;&#123;&#123;item.date&#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">              &lt;td&gt;&#123;&#123;item.price | showPrice&#125;&#125;&lt;&#x2F;td&gt;</span><br><span class="line">              &lt;td&gt;</span><br><span class="line">                &lt;button @click&#x3D;&quot;increment(index)&quot;&gt;+&lt;&#x2F;button&gt;</span><br><span class="line">                &#123;&#123;item.count&#125;&#125;</span><br><span class="line">                &lt;button @click&#x3D;&quot;decrement(index)&quot; :disabled&#x3D;&quot;item.count &#x3D;&#x3D; 1&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">              &lt;&#x2F;td&gt;</span><br><span class="line">              &lt;td&gt;</span><br><span class="line">                &lt;button @click&#x3D;&quot;removeclick(index)&quot;&gt;删除&lt;&#x2F;button&gt;</span><br><span class="line">              &lt;&#x2F;td&gt;</span><br><span class="line">            &lt;&#x2F;tr&gt;</span><br><span class="line">          &lt;&#x2F;tbody&gt;</span><br><span class="line">        &lt;&#x2F;table&gt;</span><br><span class="line">        &lt;h2&gt;总价格&#123;&#123;tPrice | showPrice&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;h2 v-else&gt;购物车为空&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;index.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>css代码部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">th&#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    background-color: #f2f2f2;</span><br><span class="line">&#125;</span><br><span class="line">tbody&#123;</span><br><span class="line">    text-align: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>vue代码部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">var app &#x3D; new Vue(&#123;</span><br><span class="line">  el: &#39;#app&#39;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    msg: &#39;hi&#39;,</span><br><span class="line">    books: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: 1,</span><br><span class="line">        name: &#39;《算法导论》&#39;,</span><br><span class="line">        date: &#39;2006-9&#39;,</span><br><span class="line">        price: 85.0,</span><br><span class="line">        count: 1,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: 2,</span><br><span class="line">        name: &#39;《UNIX编程艺术》&#39;,</span><br><span class="line">        date: &#39;2006-2&#39;,</span><br><span class="line">        price: 50.0,</span><br><span class="line">        count: 1,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: 3,</span><br><span class="line">        name: &#39;《编程珠玑》&#39;,</span><br><span class="line">        date: &#39;2006-10&#39;,</span><br><span class="line">        price: 39.0,</span><br><span class="line">        count: 1,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: 4,</span><br><span class="line">        name: &#39;《代码大全》&#39;,</span><br><span class="line">        date: &#39;2006-3&#39;,</span><br><span class="line">        price: 128.0,</span><br><span class="line">        count: 1,</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    increment(index) &#123;</span><br><span class="line">      this.books[index].count++;</span><br><span class="line">    &#125;,</span><br><span class="line">    decrement(index) &#123;</span><br><span class="line">      this.books[index].count--;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeclick(index) &#123;</span><br><span class="line">      this.books.splice(index, 1);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    tPrice() &#123;</span><br><span class="line">      let tPrice &#x3D; 0;</span><br><span class="line">      for (let i &#x3D; 0; i &lt; this.books.length; i++) &#123;</span><br><span class="line">        tPrice +&#x3D; this.books[i].price * this.books[i].count;</span><br><span class="line">      &#125;</span><br><span class="line">      return tPrice;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    showPrice(price) &#123;</span><br><span class="line">      return &#39;¥&#39; + price.toFixed(2);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/12/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%B3%95-Vue40/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/12/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%B3%95-Vue40/" itemprop="url">数组中的响应式方法_Vue40</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T00:10:20+08:00">
+                2021-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Vue40-数组中的响应式方法"><a href="#Vue40-数组中的响应式方法" class="headerlink" title="(Vue40)数组中的响应式方法"></a>(Vue40)数组中的响应式方法</h1><ol>
+<li><p>直接贴代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for&#x3D;&quot;item in letters&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">        &lt;button @click&#x3D;&quot;btnClick&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var app &#x3D; new Vue(&#123;</span><br><span class="line">            el:&#39;#app&#39;,</span><br><span class="line">            data:&#123;</span><br><span class="line">                letters:[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                btnClick()&#123;</span><br><span class="line">                    &#x2F;&#x2F;1.this(),在最后添加数据</span><br><span class="line">                    &#x2F;&#x2F;this.letters.push(&#39;aaa&#39;)</span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F;2.pop()，删除数组中最后一个元素</span><br><span class="line">                    &#x2F;&#x2F;this.letters.pop()</span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F;3.shift(),删除数组中第一个元素</span><br><span class="line">                    &#x2F;&#x2F;this.letters.shift()</span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F;4.unshift(),在数组最前面添加元素</span><br><span class="line">                    &#x2F;&#x2F;this.letters.unshift(&#39;aaa&#39;)</span><br><span class="line">                    &#x2F;&#x2F;this.letters.unshift(&#39;aaa&#39;,&#39;bbb&#39;,&#39;ccc&#39;)</span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F;5.splice()，删除元素&#x2F;插入元素&#x2F;替换元素</span><br><span class="line">                    &#x2F;&#x2F;splice()删除元素:第二个参数传入你要删除几个元素(如果没有传，</span><br><span class="line">                    &#x2F;&#x2F;				  就删除后面所有元素).</span><br><span class="line">                    &#x2F;&#x2F;this.letters.splice(1,1)(从第一个元素后面删除一个元素)</span><br><span class="line">                    &#x2F;&#x2F;splice()替换元素</span><br><span class="line">                    &#x2F;&#x2F;this.letters.splice(1,1,&#39;e&#39;)</span><br><span class="line">                    &#x2F;&#x2F;splice()插入元素</span><br><span class="line">                    &#x2F;&#x2F;this.letters.splice(1,0,&#39;e&#39;)</span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F;6.sort()，排序</span><br><span class="line">                    &#x2F;&#x2F;this.letters.sort()</span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F;7.reverse()反转</span><br><span class="line">                    &#x2F;&#x2F;this.letters.reverse()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F; 通过索引值修改数组中的元素(不是响应式的)</span><br><span class="line">                    &#x2F;&#x2F;this.letters[0] &#x3D; &#39;aaaa&#39;;</span><br><span class="line"></span><br><span class="line">                    &#x2F;&#x2F;set(要修改的对象，索引值，修改后的值)</span><br><span class="line">                    &#x2F;&#x2F;Vue.set(this.letters,0,&#39;bbbb&#39;)</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/12/v-for%E7%9A%84%E4%BD%BF%E7%94%A8-Vue37-38/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/12/v-for%E7%9A%84%E4%BD%BF%E7%94%A8-Vue37-38/" itemprop="url">v-for的使用_Vue37-38</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T00:09:10+08:00">
+                2021-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="（Vue37-38-v-for的使用"><a href="#（Vue37-38-v-for的使用" class="headerlink" title="（Vue37-38)v-for的使用"></a>（Vue37-38)v-for的使用</h1><ol>
+<li>v-for遍历数组<ul>
+<li>v-for的语法类似于js中的for循环。</li>
+<li>格式如下：item in items的形式</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 1.在遍历的过程中，没有使用所有制(下标值) --&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for&#x3D;&quot;item in names&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">        &lt;!-- 2.在遍历的过程中，获取索引值 --&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for&#x3D;&quot;(item,index) in names&quot;&gt;</span><br><span class="line">                &#123;&#123;index&#125;&#125;.&#123;&#123;item&#125;&#125;</span><br><span class="line">            &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var app &#x3D; new Vue(&#123;</span><br><span class="line">            el:&#39;#app&#39;,</span><br><span class="line">            data:&#123;</span><br><span class="line">                names:[&#39;why&#39;,&#39;lii&#39;,&#39;lo&#39;,&#39;po&#39;]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>v-for遍历对象(演示代码)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">       &lt;!-- 1.在遍历对象的过程中，如果只是获取一个数值，那么获取到的是value --&gt;</span><br><span class="line">       &lt;ul&gt;</span><br><span class="line">           &lt;li v-for&#x3D;&quot;item in info&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">       &lt;&#x2F;ul&gt;</span><br><span class="line">   </span><br><span class="line">       &lt;!-- 2.获取key和value  --&gt;</span><br><span class="line">       &lt;ul&gt;</span><br><span class="line">           &lt;li v-for&#x3D;&quot;(value,key) in info &quot;&gt;</span><br><span class="line">               &#123;&#123;key&#125;&#125;:&#123;&#123;value&#125;&#125;</span><br><span class="line">           &lt;&#x2F;li&gt;</span><br><span class="line">       &lt;&#x2F;ul&gt;</span><br><span class="line">   </span><br><span class="line">       &lt;!-- 3.获取key、value和index --&gt;</span><br><span class="line">       &lt;ul&gt;</span><br><span class="line">           &lt;li v-for&#x3D;&quot;(value,key,index) in info &quot;&gt;</span><br><span class="line">               &#123;&#123;index&#125;&#125;.&#123;&#123;key&#125;&#125;:&#123;&#123;value&#125;&#125;</span><br><span class="line">           &lt;&#x2F;li&gt;</span><br><span class="line">       &lt;&#x2F;ul&gt;</span><br><span class="line">   &lt;&#x2F;div&gt;</span><br><span class="line">   &lt;script&gt;</span><br><span class="line">       var app &#x3D; new Vue(&#123;</span><br><span class="line">           el:&#39;#app&#39;,</span><br><span class="line">           data:&#123;</span><br><span class="line">               info:&#123;</span><br><span class="line">                   name:&#39;AL&#39;,</span><br><span class="line">                   age:18,</span><br><span class="line">                   height:180</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">   </span><br><span class="line">   &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>v-for绑定key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">     &lt;li v-for&#x3D;&quot;item in info&quot; :key&#x3D;&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>key要和后面展示的元素一一对应</li>
+<li>key绑定的时候一定要是唯一性</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/12/v-show%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%90%8Cv-if%E7%9A%84%E5%8C%BA%E5%88%AB-Vue36/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/12/v-show%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%90%8Cv-if%E7%9A%84%E5%8C%BA%E5%88%AB-Vue36/" itemprop="url">v-show的使用以及同v-if的区别_Vue36</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T00:07:02+08:00">
+                2021-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Vue36-v-show的使用以及同v-if的区别"><a href="#Vue36-v-show的使用以及同v-if的区别" class="headerlink" title="(Vue36)v-show的使用以及同v-if的区别"></a>(Vue36)v-show的使用以及同v-if的区别</h1><ol>
+<li><p>v-if</p>
+<p>当条件为false时，包含v-if指令的元素，根本不会存在dom中</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>v-show</p>
+<p>当条件为false时，v-show只是给我们的元素添加一个行内样式：display:none</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>v-if和v-show如何选择</p>
+<ul>
+<li><p>都默认为ture</p>
+</li>
+<li><p>当需要在显示与隐藏之间切片很频繁时，使用v-show</p>
+</li>
+<li><p>当只有一次切换时，通过使用v-if</p>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/12/%E7%99%BB%E5%BD%95%E5%88%87%E6%8D%A2%E7%9A%84input%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98-Vue35/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/12/%E7%99%BB%E5%BD%95%E5%88%87%E6%8D%A2%E7%9A%84input%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98-Vue35/" itemprop="url">登录切换的input复用问题_Vue35</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T00:05:31+08:00">
+                2021-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="（Vue35-登录切换的input复用问题"><a href="#（Vue35-登录切换的input复用问题" class="headerlink" title="（Vue35)登录切换的input复用问题"></a>（Vue35)登录切换的input复用问题</h1><ol>
+<li><p>先贴原代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;spam v-if&#x3D;&quot;isUser&quot;&gt;</span><br><span class="line">        &lt;label for&#x3D;&quot;username&quot;&gt;用户账号&lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;username&quot; placeholder&#x3D;&quot;用户账号&quot; &gt;</span><br><span class="line">    &lt;&#x2F;spam&gt;</span><br><span class="line">    &lt;spam v-else&gt;</span><br><span class="line">        &lt;label for&#x3D;&quot;email&quot;&gt;用户邮箱&lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;email&quot; placeholder&#x3D;&quot;用户邮箱&quot;  &gt;</span><br><span class="line">    &lt;&#x2F;spam&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;isUser &#x3D; !isUser&quot;&gt;切换类型&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var app &#x3D; new Vue(&#123;</span><br><span class="line">        el:&#39;#app&#39;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isUser:true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>问题：当输入数据之后点击切换按钮，数据会出现在下一个input.<ul>
+<li>解答：这是因为Vue在进行DOM渲染时，出于性能考虑，会尽可能的复用已经存在的元素，而不是重新创建新的元素。</li>
+<li>解决：给对应的input添加key</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>修改之后的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;spam v-if&#x3D;&quot;isUser&quot;&gt;</span><br><span class="line">            &lt;label for&#x3D;&quot;username&quot;&gt;用户账号&lt;&#x2F;label&gt;</span><br><span class="line">            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;username&quot; placeholder&#x3D;&quot;用户账号&quot; key&#x3D;&quot;username&quot;&gt;</span><br><span class="line">        &lt;&#x2F;spam&gt;</span><br><span class="line">        &lt;spam v-else&gt;</span><br><span class="line">            &lt;label for&#x3D;&quot;email&quot;&gt;用户邮箱&lt;&#x2F;label&gt;</span><br><span class="line">            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;email&quot; placeholder&#x3D;&quot;用户邮箱&quot; key&#x3D;&quot;email&quot; &gt;</span><br><span class="line">        &lt;&#x2F;spam&gt;</span><br><span class="line">        &lt;button @click&#x3D;&quot;isUser &#x3D; !isUser&quot;&gt;切换类型&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var app &#x3D; new Vue(&#123;</span><br><span class="line">            el:&#39;#app&#39;,</span><br><span class="line">            data:&#123;</span><br><span class="line">                isUser:true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/11/v-else-if%E5%92%8Cv-else%E7%9A%84%E4%BD%BF%E7%94%A8-Vue32/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/11/v-else-if%E5%92%8Cv-else%E7%9A%84%E4%BD%BF%E7%94%A8-Vue32/" itemprop="url">v-else-if和v-else的使用_Vue33</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-11T23:55:51+08:00">
+                2021-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Vue33-V-if和v-else-if和v-else的使用"><a href="#Vue33-V-if和v-else-if和v-else的使用" class="headerlink" title="(Vue33)V-if和v-else-if和v-else的使用"></a>(Vue33)V-if和v-else-if和v-else的使用</h1><ol>
+<li><p><strong>不推荐v-if写在div中</strong>，建议在computed中写</p>
+<ul>
+<li>view 视图层 尽量写和页面展示有关的东西，逻辑尽量写在 javascript里</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">       &lt;!-- 不推荐这样写，建议用computed写 --&gt;</span><br><span class="line">        &lt;h2 v-if&#x3D;&quot;&quot;&gt;优秀&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;h2 v-else-if&#x3D;&quot;score&gt;&#x3D;80&quot;&gt;良好&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;h2 v-else-if&#x3D;&quot;scorscore&gt;&#x3D;90e&gt;&#x3D;60&quot;&gt;及格&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;h2 v-else&gt;不及格&lt;&#x2F;h2&gt;</span><br><span class="line"> &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>computed中v-if的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;h2&gt;&#123;&#123;result&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;&#x2F;div&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">computed:&#123;</span><br><span class="line">          result()&#123;</span><br><span class="line">                    var showmsg &#x3D; &#39;&#39;;</span><br><span class="line">                    if(this.score&gt;&#x3D;90)&#123;</span><br><span class="line">                       return showmsg &#x3D; &#39;优秀&#39;</span><br><span class="line">                    &#125;else if(this.score&gt;&#x3D;80)&#123;</span><br><span class="line">                       return showmsg &#x3D; &#39;良好&#39;</span><br><span class="line">                    &#125;else if(this.score&gt;&#x3D;60)&#123;</span><br><span class="line">                       return showmsg &#x3D; &#39;及格&#39;</span><br><span class="line">                    &#125;else if(this.score&lt;60)&#123;&#125;</span><br><span class="line">                       return showmsg &#x3D; &#39;不及格&#39;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/js%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9E%8BString-H24/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -942,923 +1785,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/js%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8-H12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/js%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8-H12/" itemprop="url">js变量的使用_H12</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T21:51:29+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS变量的使用—H12"><a href="#JS变量的使用—H12" class="headerlink" title="JS变量的使用—H12"></a>JS变量的使用—H12</h1><ol>
-<li><p>变量的使用分为两步</p>
-<ul>
-<li><p>声明变量</p>
-</li>
-<li><p>赋值</p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="2">
-<li><p>声明变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;声明变量</span><br><span class="line">var age; &#x2F;&#x2F;声明一个名称为age的变量</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>var</strong>是一个js关键字，用来声明变量。使用该关键字声明关键字后，计算机会自动为变量分配内存空间，不需要程序员管理。</li>
-<li>age是程序员定义的变量名，我们需要通过变量名来访问内存中分配的空间</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">age &#x3D; 10; &#x2F;&#x2F; 给age这个变量赋值为10</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>= 用来把右边的值赋给左边的变量空间中 此处代表赋值的意思</li>
-<li>变量值四程序员保存到变量空间里的值</li>
-</ul>
-</li>
-</ol>
-<ol start="4">
-<li><p>变量的初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var age &#x3D; 10; &#x2F;&#x2F;声明变量同时赋值为18</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>声明一个变量并赋值，我们称之为变量的初始化</li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/js%E7%9A%84%E7%BB%84%E6%88%90-H7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/js%E7%9A%84%E7%BB%84%E6%88%90-H7/" itemprop="url">js的组成_H7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T21:50:42+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS的组成-H7"><a href="#JS的组成-H7" class="headerlink" title="JS的组成-H7"></a>JS的组成-H7</h1><ol>
-<li><p>组成</p>
-<ul>
-<li>ECMAScrpit - JavaScript语法</li>
-<li>DOM - 页面文档对象模型</li>
-<li>BOM - 游览器对象模型</li>
-</ul>
-</li>
-</ol>
-<ol start="2">
-<li><p>ECMAScrpit</p>
-<p>ECMAScrpit是由ECMA国际,进行标准化的一门编程语言，它往往被称为JavaScript或JScrpit，但实际上后两者是ECMAScrpit语言的实现和扩展。（<strong>ECMAScrpit规定了JS编程语法和基础核心知识，是所有游览器厂商共同遵守的一套jS语法工业标准</strong>）</p>
-</li>
-</ol>
-<ol start="3">
-<li><p>DOM - 页面文档对象模型</p>
-<p><strong>文档对象模型</strong>，是W3C组织推荐的处理可扩展标记语言的<strong>标准编程接口</strong>。通过DOM提供的接口可以对页面上各种元素进行操作（大小、位置、颜色等）</p>
-</li>
-</ol>
-<ol start="4">
-<li><p>BOM - 游览器对象模型</p>
-<p>BOM是指游览器对象模型，它提供了独立于内容、可以与游览器窗口互动的对象结构。通过BOM可以擦偶哦游览器窗口，比如弹出框、控制游览器跳转、获取分辨率等。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/js%E7%9A%84%E4%B9%A6%E5%86%99%E4%BD%8D%E7%BD%AE-H8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/js%E7%9A%84%E4%B9%A6%E5%86%99%E4%BD%8D%E7%BD%AE-H8/" itemprop="url">js的书写位置_H8</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T21:49:46+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS书写位置—H8"><a href="#JS书写位置—H8" class="headerlink" title="JS书写位置—H8"></a>JS书写位置—H8</h1><ol>
-<li><p>行内式的介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 行内式的js,直接写到元素的内部 --&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;点击&quot; onclick&#x3D;&quot;alert(&#39;你好&#39;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>内嵌式的js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">     alert(&#39;hello&#39;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="3">
-<li><p>外部js引入 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;test.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/css%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93-%E9%BB%91%E9%A9%AC77/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/css%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93-%E9%BB%91%E9%A9%AC77/" itemprop="url">css字体属性总结_黑马77</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T21:47:09+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="黑马77-CSS字体属性总结"><a href="#黑马77-CSS字体属性总结" class="headerlink" title="(黑马77)CSS字体属性总结"></a>(黑马77)CSS字体属性总结</h1><table>
-<thead>
-<tr>
-<th>属性</th>
-<th>表示</th>
-<th>注意点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>font-size</td>
-<td>字号</td>
-<td>通常用的单位时px像素,一定要跟上单位</td>
-</tr>
-<tr>
-<td>font-family</td>
-<td>字体</td>
-<td>实际按照要求来写字体</td>
-</tr>
-<tr>
-<td>font-weight</td>
-<td>字体粗细</td>
-<td>加粗是700或者bold。不加粗是normal或者400，数字后面不跟单位</td>
-</tr>
-<tr>
-<td>font-style</td>
-<td>字体样式</td>
-<td>倾斜是italic，不倾斜是normal.</td>
-</tr>
-</tbody></table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/css%E9%80%89%E6%8B%A9%E5%99%A8-%E9%BB%91%E9%A9%AC-66-71/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/css%E9%80%89%E6%8B%A9%E5%99%A8-%E9%BB%91%E9%A9%AC-66-71/" itemprop="url">css选择器_黑马-66-71</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T21:44:20+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Css选择器（黑66-71）"><a href="#Css选择器（黑66-71）" class="headerlink" title="Css选择器（黑66-71）"></a>Css选择器（黑66-71）</h1><ol>
-<li><p>选择器分类</p>
-<p>选择器分为<strong>基础选择器</strong>和<strong>复合选择器</strong>两个大类。</p>
-<ul>
-<li>基础选择器是由<strong>单个选择器组成</strong>的</li>
-<li>基础选择器又包括：<strong>标签选择器</strong>、<strong>类选择器</strong>、<strong>id选择器</strong>和<strong>通配符选择器</strong></li>
-</ul>
-</li>
-</ol>
-<ol start="2">
-<li><p>标签选择器</p>
-<p>标签选择器是指用html标签名作为选择器，按标签名称分类，为页面中某一类标签指定统一的css样式。</p>
-</li>
-</ol>
-<ol start="3">
-<li><p>类选择器</p>
-<p>如果想要差异化选择不同的标签，单独选一个或者某几个标签，可以使用类选择器。（就是class=”名字”）</p>
-</li>
-</ol>
-<ol start="4">
-<li><p>类选择器—多类名</p>
-<p>可以给一个标签定<strong>多个类名</strong>，从而达到更多的选择目的。就是一个标签可以有多个名字。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;red font20&quot;&gt;hello&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>多个类名中间必须用空格分开</li>
-</ul>
-</li>
-</ol>
-<ol start="5">
-<li><p>id选择器(经常搭配JS使用)</p>
-<p>id选择器可以为标有特定id的html元素指定特定的样式</p>
-<p>html元素以<strong>id属性</strong>来设置id选择器，css中id选择器以“<strong>#”</strong>来定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#id名&#123;</span><br><span class="line">	属性1：属性值1;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/input%E5%B1%9E%E6%80%A7%E6%9D%82%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/input%E5%B1%9E%E6%80%A7%E6%9D%82%E9%A1%B9/" itemprop="url">input属性杂项</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T21:37:45+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="input属性杂项"><a href="#input属性杂项" class="headerlink" title="input属性杂项"></a>input属性杂项</h1><ol>
-<li><p>label标签    </p>
-<ul>
-<li><p><code>&lt;label&gt;</code>标签为inut元素定义标注（标签）</p>
-</li>
-<li><p><code>&lt;label&gt;</code>标签用于绑定一个表单元素当点击<code>&lt; label&gt;</code>标签内的文本时，浏览器就会自动将焦点（光标)转到或者选择对应的表单元素上，来增加用户体验</p>
-</li>
-<li><p>语法</p>
-</li>
-</ul>
-</li>
-</ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;label for&#x3D;&quot;man&quot;&gt; 男&lt;&#x2F;label&gt; for属性要与相关input的id属性相同&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<ol start="2">
-<li><p>select表单元素</p>
-<ul>
-<li><p>使用场景</p>
-<p>在页面中，如果有多个选项让用户选择，并且想要节约页面空间时，我们可以使用<code>&lt;select&gt;</code>标签控件定义<strong><em>下拉列表。</em></strong></p>
-</li>
-<li><p>语法</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">	&lt;option selected &#x3D; &quot;selected &gt;广州&lt;&#x2F;option&gt;</span><br><span class="line">	&lt;option&gt;上海&lt;&#x2F;option&gt;</span><br><span class="line">	&lt;option&gt;深圳&lt;&#x2F;option&gt;</span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>&lt;select&gt;</code>中至少包含一对<code>&lt;option&gt;</code>.</p>
-</li>
-<li><p>在<code>&lt;option&gt;</code>中定义`selected = “selected”时，当前项即为默认选中项</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>textarea文本域标签</p>
-<ul>
-<li><p>使用场景</p>
-<p>当用户输入内容较多的情况下，我们可以使用<code>&lt;textarea&gt;</code>标签。在表单元素中，<code>&lt;textarea&gt;</code>标签是用于定义多行文本输入的控件</p>
-</li>
-<li><p>语法</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea rows&#x3D;&quot;3&quot; cols&#x3D;&quot;20&quot;&gt;</span><br><span class="line">           文本内容</span><br><span class="line">&lt;&#x2F;textarea&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>cols=”每行中的字符数”，rows=”显示的行数”,<strong><em>我们在实际开发中不会使用，都是用css改变大小</em></strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1913,7 +1839,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
