@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="-Vue," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,20 +79,16 @@
 
 
 
-<meta name="description" content="Vue中的MVVM(08) MVVM分为三个部分：分别是M（Model，模型层 ），V（View，视图层），VM（ViewModel，V与M连接的桥梁，也可以看作为控制器）  M：模型层，主要负责业务数据相关； 视图层，顾名思义，负责视图相关，细分下来就是html+css层； VM：V与M沟通的桥梁，负责监听M或者V的修改，是实现MVVM双向绑定的要点；   MVVM支持双向绑定，意思就是当M层数">
+<meta name="description" content="SoftEther搭建1.在linux下载服务端安装包1wget https:&#x2F;&#x2F;github.com&#x2F;SoftEtherVPN&#x2F;SoftEtherVPN_Stable&#x2F;releases&#x2F;download&#x2F;v4.36-9754-beta&#x2F;softether-vpnserver-v4.36-9754-beta-2021.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue中的MVVM">
-<meta property="og:url" content="https://alkinh.github.io.git/2021/03/13/Vue%E4%B8%AD%E7%9A%84MVVM/index.html">
+<meta property="og:title" content="SoftEther服务搭建">
+<meta property="og:url" content="https://alkinh.github.io.git/2021/07/09/SoftEther%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="存笔记的博客">
-<meta property="og:description" content="Vue中的MVVM(08) MVVM分为三个部分：分别是M（Model，模型层 ），V（View，视图层），VM（ViewModel，V与M连接的桥梁，也可以看作为控制器）  M：模型层，主要负责业务数据相关； 视图层，顾名思义，负责视图相关，细分下来就是html+css层； VM：V与M沟通的桥梁，负责监听M或者V的修改，是实现MVVM双向绑定的要点；   MVVM支持双向绑定，意思就是当M层数">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/1.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/%E8%AE%A1%E6%95%B0%E5%99%A8%E4%B8%AD%E7%9A%84mvvm.png">
-<meta property="article:published_time" content="2021-03-13T14:42:51.000Z">
-<meta property="article:modified_time" content="2021-03-24T09:37:46.302Z">
+<meta property="og:description" content="SoftEther搭建1.在linux下载服务端安装包1wget https:&#x2F;&#x2F;github.com&#x2F;SoftEtherVPN&#x2F;SoftEtherVPN_Stable&#x2F;releases&#x2F;download&#x2F;v4.36-9754-beta&#x2F;softether-vpnserver-v4.36-9754-beta-2021.">
+<meta property="article:published_time" content="2021-07-09T14:26:02.548Z">
+<meta property="article:modified_time" content="2021-06-25T04:17:27.776Z">
 <meta property="article:author" content="Alkinh">
-<meta property="article:tag" content="-Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/1.webp">
 
 
 
@@ -122,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="https://Alkinh.github.io.git/2021/03/13/Vue中的MVVM/"/>
+  <link rel="canonical" href="https://Alkinh.github.io.git/2021/07/09/SoftEther服务搭建/"/>
 
 
 
 
 
-  <title>Vue中的MVVM | 存笔记的博客</title>
+  <title>SoftEther服务搭建 | 存笔记的博客</title>
   
 
 
@@ -255,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/03/13/Vue%E4%B8%AD%E7%9A%84MVVM/">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/07/09/SoftEther%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alkinh">
@@ -272,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue中的MVVM</h1>
+          <h1 class="post-title" itemprop="name headline">SoftEther服务搭建</h1>
         
 
         <div class="post-meta">
@@ -284,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-13T22:42:51+08:00">
-                2021-03-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-09T22:26:02+08:00">
+                2021-07-09
               </time>
             
 
@@ -322,26 +318,28 @@
       
 
       
-        <h1 id="Vue中的MVVM-08"><a href="#Vue中的MVVM-08" class="headerlink" title="Vue中的MVVM(08)"></a>Vue中的MVVM(08)</h1><ul>
-<li><p>MVVM分为三个部分：分别是M（Model，模型层 ），V（View，视图层），VM（ViewModel，V与M连接的桥梁，也可以看作为控制器）</p>
-<ol>
-<li>M：模型层，主要负责业务数据相关；</li>
-<li>视图层，顾名思义，负责视图相关，细分下来就是html+css层；</li>
-<li>VM：V与M沟通的桥梁，负责监听M或者V的修改，是实现MVVM双向绑定的要点；</li>
-</ol>
-</li>
-<li><p>MVVM支持双向绑定，意思就是当M层数据进行修改时，VM层会监测到变化，并且通知V层进行相应的修改，反之修改V层则会通知M层数据进行修改，以此也实现了视图与模型层的相互解耦；</p>
-</li>
-<li><p>关系图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/1.webp" alt=""></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">案例2</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line"></span><br><span class="line">      &lt;h2&gt;当前计数：&#123;&#123;num&#125;&#125;&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;add&quot;&gt;+&lt;&#x2F;button&gt;			view</span><br><span class="line">      &lt;button @click&#x3D;&quot;sub&quot;&gt;-&lt;&#x2F;button&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;js&#x2F;vue.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    </span><br><span class="line">      var app &#x3D; new Vue(&#123;                       viewmodel</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        el: &#39;#app&#39;,</span><br><span class="line">        data: &#123;									model</span><br><span class="line">          num: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        methods: &#123;</span><br><span class="line">          add: function () &#123;</span><br><span class="line">            this.num++;</span><br><span class="line">          &#125;,</span><br><span class="line">          sub: function () &#123;</span><br><span class="line">            this.num--;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+        <h1 id="SoftEther搭建"><a href="#SoftEther搭建" class="headerlink" title="SoftEther搭建"></a>SoftEther搭建</h1><h4 id="1-在linux下载服务端安装包"><a href="#1-在linux下载服务端安装包" class="headerlink" title="1.在linux下载服务端安装包"></a>1.在linux下载服务端安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;SoftEtherVPN&#x2F;SoftEtherVPN_Stable&#x2F;releases&#x2F;download&#x2F;v4.36-9754-beta&#x2F;softether-vpnserver-v4.36-9754-beta-2021.06.07-linux-x64-64bit.tar.gz</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>计数器中的mvvm</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Alkinh/imghost@master/img/%E8%AE%A1%E6%95%B0%E5%99%A8%E4%B8%AD%E7%9A%84mvvm.png" alt=""></p>
+<h4 id="2-解压安装包"><a href="#2-解压安装包" class="headerlink" title="2.解压安装包"></a>2.解压安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf softether-vpnserver-v4.36-9754-beta-2021.06.07-linux-x64-64bit.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-进入目录"><a href="#3-进入目录" class="headerlink" title="3.进入目录"></a>3.进入目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd vpnserver</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-启动安装"><a href="#4-启动安装" class="headerlink" title="4.启动安装"></a>4.启动安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-全部选1"><a href="#5-全部选1" class="headerlink" title="5.全部选1"></a>5.全部选1</h4><h4 id="6-启动服务"><a href="#6-启动服务" class="headerlink" title="6.启动服务"></a>6.启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;vpnserver start</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-进入设置"><a href="#7-进入设置" class="headerlink" title="7.进入设置"></a>7.进入设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;vpncmd</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-指定端口"><a href="#8-指定端口" class="headerlink" title="8.指定端口"></a>8.指定端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:5555</span><br></pre></td></tr></table></figure>
+
+<p>10.设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServerPasswordSet</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-在腾讯云开启5555端口"><a href="#11-在腾讯云开启5555端口" class="headerlink" title="11.在腾讯云开启5555端口"></a>11.在腾讯云开启5555端口</h4><h1 id="配置windows管理端"><a href="#配置windows管理端" class="headerlink" title="配置windows管理端"></a>配置windows管理端</h1><ol>
+<li><h4 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h4></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.leqii.com&#x2F;download&#x2F;yulan&#x2F;d77&#x2F;d77.html</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -357,12 +355,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Vue/" rel="tag"># -Vue</a>
-          
-        </div>
-      
 
       
       
@@ -372,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/13/%E5%B0%8F%E6%A1%88%E4%BE%8B-%E8%AE%A1%E6%95%B0%E5%99%A8/" rel="next" title="小案例-计数器">
-                <i class="fa fa-chevron-left"></i> 小案例-计数器
+              <a href="/2021/04/19/%E7%94%A8vue%E5%81%9A%E4%B8%80%E4%B8%AAtab%E5%88%87%E6%8D%A2/" rel="next" title="用vue做一个tab切换">
+                <i class="fa fa-chevron-left"></i> 用vue做一个tab切换
               </a>
             
           </div>
@@ -381,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/03/23/Vue%E7%9A%84options%E9%80%89%E9%A1%B9/" rel="prev" title="Vue的options选项">
-                Vue的options选项 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue中的MVVM-08"><span class="nav-number">1.</span> <span class="nav-text">Vue中的MVVM(08)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SoftEther搭建"><span class="nav-number">1.</span> <span class="nav-text">SoftEther搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在linux下载服务端安装包"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.在linux下载服务端安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-解压安装包"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2.解压安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-进入目录"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3.进入目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-启动安装"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4.启动安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-全部选1"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5.全部选1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-启动服务"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6.启动服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-进入设置"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7.进入设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-指定端口"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8.指定端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-在腾讯云开启5555端口"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">11.在腾讯云开启5555端口</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置windows管理端"><span class="nav-number">2.</span> <span class="nav-text">配置windows管理端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#教程"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">教程</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

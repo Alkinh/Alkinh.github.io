@@ -248,6 +248,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/08/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9516/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/08/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9516/" itemprop="url">MySQL网课记录16</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T13:55:37+08:00">
+                2020-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
+                    <span itemprop="name">网课记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="3-6-9-连接查询"><a href="#3-6-9-连接查询" class="headerlink" title="3.6.9 连接查询"></a>3.6.9 连接查询</h1><p>1.连接查询<br>  在 SELECT语句中，如果FROM子句引用了多个表源或视图，则可以使用JOIN关键字指示指定的连接操作在指定的表源和视图之间执行。<br>  语法格式：<br>  join_table:<br>    table_reference[INNER|CROSS]JOIN table_factor [join_condition]<br>    | table_reference{LEFT|RIGHT}[OUTER]JOIN table_reference join_condition<br>  其中，join_condotion:<br>   ON条件<br>  |USING （column_list)</p>
+<p>1.1例</p>
+<p>(1)查找选修了c001课程且成绩在80分以上的学生姓名及成绩。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select sname,grade</span><br><span class="line">from tb_student s join tb_mark m &#x2F;&#x2F;要给两个表起别名</span><br><span class="line">on s.sno&#x3D;m.sno  &#x2F;&#x2F; 要两个表中有相同的字段名</span><br><span class="line">where cno&#x3D;&#39;c001&#39; and grde&gt;&#x3D;80;</span><br></pre></td></tr></table></figure>
+
+<p>(2)查询出每个班级每门课程的平均分，显示出班级名称、课程名称及平均分，按平均分查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select classname,cname,avg(grade) 平均分,count(grade) 考试人数</span><br><span class="line">from tb_student s join tb_course c join tb_mark m</span><br><span class="line">on s.sno&#x3D;m.sno and c.cno&#x3D;m.cno &#x2F;&#x2F;表之间相同的字段名</span><br><span class="line">grour by classname,cname  </span><br><span class="line">order by avg(grade);</span><br></pre></td></tr></table></figure>
+
+<p>2.外连接<br>  制定了OURTER关键字的连接为外连接。<br>  外连接包括：<br>  左外连接（ LEFT OUTER JOIN）：结果表中除了匹配行外，还包括左表有的但右表中不匹配的行，对于这样的行，从右表被选择的字段设置为NULL。<br>  右外连接（RIGHT OUTER JOIN）：结果表中除了匹配行外，还包括右表有的但左表中不匹配的行，对于这样的行，从左表被选择的字段设置为NULL。</p>
+<p>2.1例<br>(1)查找所有学生情况及他们选课情况，若学生未选修任何课，也要包括其情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">se;ecr s.*,cno,grade</span><br><span class="line">from tb_student s left outer join tb_mark m</span><br><span class="line">on s.sno&#x3D;m.sno;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/05/05/MySQL%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%9515/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1683,153 +1834,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2020/04/10/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95%EF%BC%887%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/10/mysql%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95%EF%BC%887%EF%BC%89/" itemprop="url">mysql网课记录（7）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-10T23:30:21+08:00">
-                2020-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E8%AF%BE%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">网课记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="章节3-4-数据删除"><a href="#章节3-4-数据删除" class="headerlink" title="章节3.4 数据删除"></a>章节3.4 数据删除</h1><p>1.直接删除表中所有记录<br>  语法格式<br>  delete from 表名； 删除表中记录 保留数据结构</p>
-<p>2.删除满足条件的行<br>  使用delete语句删除表中满足条件的记录行。<br>  语法格式<br>  delete from 表名<br>  [where 条件]</p>
-<p>（1)示例 删除stumarkdb数据库中tb_mark表“0007”记录删除</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use stumardb;</span><br><span class="line">delete from tb_mark</span><br><span class="line">where cno&#x3D;&#39;0007&#39;；</span><br></pre></td></tr></table></figure>
-
-<p> 3.从多个表中删除行<br> 语法格式<br> delete 表名，表名<br> from 所有关联的表名<br> where 关联的权限；</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1884,7 +1888,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

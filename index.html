@@ -248,6 +248,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/07/09/SoftEther%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alkinh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="存笔记的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/07/09/SoftEther%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" itemprop="url">SoftEther服务搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-09T22:26:02+08:00">
+                2021-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SoftEther搭建"><a href="#SoftEther搭建" class="headerlink" title="SoftEther搭建"></a>SoftEther搭建</h1><h4 id="1-在linux下载服务端安装包"><a href="#1-在linux下载服务端安装包" class="headerlink" title="1.在linux下载服务端安装包"></a>1.在linux下载服务端安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;SoftEtherVPN&#x2F;SoftEtherVPN_Stable&#x2F;releases&#x2F;download&#x2F;v4.36-9754-beta&#x2F;softether-vpnserver-v4.36-9754-beta-2021.06.07-linux-x64-64bit.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-解压安装包"><a href="#2-解压安装包" class="headerlink" title="2.解压安装包"></a>2.解压安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf softether-vpnserver-v4.36-9754-beta-2021.06.07-linux-x64-64bit.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-进入目录"><a href="#3-进入目录" class="headerlink" title="3.进入目录"></a>3.进入目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd vpnserver</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-启动安装"><a href="#4-启动安装" class="headerlink" title="4.启动安装"></a>4.启动安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-全部选1"><a href="#5-全部选1" class="headerlink" title="5.全部选1"></a>5.全部选1</h4><h4 id="6-启动服务"><a href="#6-启动服务" class="headerlink" title="6.启动服务"></a>6.启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;vpnserver start</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-进入设置"><a href="#7-进入设置" class="headerlink" title="7.进入设置"></a>7.进入设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;vpncmd</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-指定端口"><a href="#8-指定端口" class="headerlink" title="8.指定端口"></a>8.指定端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:5555</span><br></pre></td></tr></table></figure>
+
+<p>10.设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServerPasswordSet</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-在腾讯云开启5555端口"><a href="#11-在腾讯云开启5555端口" class="headerlink" title="11.在腾讯云开启5555端口"></a>11.在腾讯云开启5555端口</h4><h1 id="配置windows管理端"><a href="#配置windows管理端" class="headerlink" title="配置windows管理端"></a>配置windows管理端</h1><ol>
+<li><h4 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h4></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.leqii.com&#x2F;download&#x2F;yulan&#x2F;d77&#x2F;d77.html</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/19/%E7%94%A8vue%E5%81%9A%E4%B8%80%E4%B8%AAtab%E5%88%87%E6%8D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1556,212 +1697,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Alkinh.github.io.git/2021/04/08/js%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-H21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alkinh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/author.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="存笔记的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/08/js%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-H21/" itemprop="url">js的数据类型_H21</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-08T21:53:45+08:00">
-                2021-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS的数据类型—H21"><a href="#JS的数据类型—H21" class="headerlink" title="JS的数据类型—H21"></a>JS的数据类型—H21</h1><ol>
-<li><p>变量的数据类型</p>
-<p>JavaScrpit是一种弱类型或者说动态语言。这意味着不用提前声明变量的类型，<strong>类型会被自动确定。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var age &#x3D; 10; 		&#x2F;&#x2F;这是一个数字型</span><br><span class="line">var areYOUOK &#x3D; &quot;你好&quot;   &#x2F;&#x2F;这是一个字符串</span><br></pre></td></tr></table></figure>
-
-<p>在代码运行时，变量的数据是由JS引擎<strong>根据 = 右边变量值的数据类型来判断的</strong>，运行完毕之后，<strong>变量就确定了数据类型</strong>。</p>
-<p><strong>JavaScript拥有动态类型，同时也意味着相同的变量可以作不同的类型；</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 6;		&#x2F;&#x2F;x为数字</span><br><span class="line">var x &#x3D; &quot;Bill&quot;	&#x2F;&#x2F;x为字符串</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>数据类型的分类</p>
-<p>JS把数据类型分为两类：</p>
-<ul>
-<li>简单数据类型</li>
-<li>复杂数据类型</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>简单数据类型</p>
-<table>
-<thead>
-<tr>
-<th>简单数据类型</th>
-<th>说明</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Number</td>
-<td>数字型，包含整型值和浮点型值，比如21、0.21</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Boolean</td>
-<td>布尔值类型，比如true、false，等价于1和0</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String</td>
-<td>字符串类型，如”张三”注意js里面。字符串都带引号</td>
-<td>“”</td>
-</tr>
-<tr>
-<td>Undefined</td>
-<td>var a;声明了变量a但是没有给值，此时a = undefined</td>
-<td>undefined</td>
-</tr>
-<tr>
-<td>Null</td>
-<td>var a = null;声明了变量a为空值</td>
-<td>null</td>
-</tr>
-</tbody></table>
-<ul>
-<li>在js中八进制前面加0,十六进制前面加0X</li>
-</ul>
-</li>
-</ol>
-<ol start="4">
-<li><p>数字型范围</p>
-<p>JavaScrpt中数值的最大值和最小值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(Number.MAX_VAlue); &#x2F;&#x2F;最大值</span><br><span class="line">alert(Number.MIN_VAlue); &#x2F;&#x2F;最小值</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="5">
-<li><p>数字型三个特殊值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(Infinity);    &#x2F;&#x2F;代表无穷大，</span><br><span class="line">alert(-Infinity);</span><br><span class="line">alert(NaN);</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="6">
-<li><p>isNaN()</p>
-<p>用来判断一个变量是否为非数字的类型，是数字时返回false，不是时返回true.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var h1 &#x3D; 32;</span><br><span class="line">var b1 &#x3D; isNaN(h1)；</span><br><span class="line">console.log(b1);</span><br><span class="line">var h2 &#x3D; &quot;hi&quot;;</span><br><span class="line">console.log(isNaN(h2));</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1816,7 +1751,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
